@@ -4,7 +4,7 @@ function createStreamStore() {
     const { subscribe, set } = writable<MediaStream>(null)
 
     /** Prompts the user to select a screen to capture and sets the media stream */
-    function selectScreen() {
+    function start() {
         navigator.mediaDevices
             .getDisplayMedia({
                 video: true,
@@ -15,14 +15,14 @@ function createStreamStore() {
     }
 
     /** Sets the store to null */
-    function clear() {
+    function stop() {
         set(null)
     }
 
     return {
         subscribe,
-        selectScreen,
-        clear
+        start,
+        stop
     }
 }
 
