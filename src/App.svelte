@@ -1,15 +1,28 @@
 <script lang="ts">
+  // Components
   import Button from "./components/utility/Button.svelte";
   import ScreenPreview from "./components/ScreenPreview.svelte";
 
-  let screen;
+  /** Display Media Stream */
+  let stream: MediaStream;
+
+  /** Prompts the user to select a screen to capture and sets the media stream */
+  function selectScreen() {
+    navigator.mediaDevices
+      .getDisplayMedia({
+        video: true,
+        audio: true, //  TODO: turn these into checkboxes
+      })
+      .then((mediaStream) => (stream = mediaStream))
+      .catch((err) => console.error(err)); //  TODO: Show error message to user
+  }
 </script>
 
 <main>
-  {#if screen}
-    <ScreenPreview {screen} />
+  {#if stream}
+    <ScreenPreview {stream} />
   {:else}
-    <Button>Select Screen</Button>
+    <Button on:click={selectScreen}>Select Screen</Button>
   {/if}
 </main>
 
@@ -18,6 +31,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  :global(:root) {
+    --clr-primary: orangered;
   }
 
   :global(body) {
