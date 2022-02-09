@@ -1,18 +1,10 @@
 <script lang="ts">
   // Components
-  import Button from "./components/utility/Button.svelte";
   import ScreenPreview from "./components/ScreenPreview.svelte";
-
-  //  Stores
-  import stream from "./library/stream";
 </script>
 
 <main>
-  {#if $stream}
-    <ScreenPreview />
-  {:else}
-    <Button on:click={stream.selectScreen}>Select Screen</Button>
-  {/if}
+  <ScreenPreview />
 </main>
 
 <style>

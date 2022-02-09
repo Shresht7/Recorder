@@ -14,9 +14,15 @@ function createStreamStore() {
             .catch((err) => console.error(err)); //  TODO: Show error message to user
     }
 
+    /** Sets the store to null */
+    function clear() {
+        set(null)
+    }
+
     return {
         subscribe,
-        selectScreen
+        selectScreen,
+        clear
     }
 }
 
