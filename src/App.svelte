@@ -1,7 +1,17 @@
 <script lang="ts">
+  import Button from "./components/utility/Button.svelte";
+  import ScreenPreview from "./components/ScreenPreview.svelte";
+
+  let screen;
 </script>
 
-<main>Hello Svelte!</main>
+<main>
+  {#if screen}
+    <ScreenPreview {screen} />
+  {:else}
+    <Button>Select Screen</Button>
+  {/if}
+</main>
 
 <style>
   :global(*, *::before, *::after) {
