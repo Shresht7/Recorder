@@ -3,26 +3,15 @@
   import Button from "./components/utility/Button.svelte";
   import ScreenPreview from "./components/ScreenPreview.svelte";
 
-  /** Display Media Stream */
-  let stream: MediaStream;
-
-  /** Prompts the user to select a screen to capture and sets the media stream */
-  function selectScreen() {
-    navigator.mediaDevices
-      .getDisplayMedia({
-        video: true,
-        audio: true, //  TODO: turn these into checkboxes
-      })
-      .then((mediaStream) => (stream = mediaStream))
-      .catch((err) => console.error(err)); //  TODO: Show error message to user
-  }
+  //  Stores
+  import stream from "./library/stream";
 </script>
 
 <main>
-  {#if stream}
-    <ScreenPreview {stream} />
+  {#if $stream}
+    <ScreenPreview />
   {:else}
-    <Button on:click={selectScreen}>Select Screen</Button>
+    <Button on:click={stream.selectScreen}>Select Screen</Button>
   {/if}
 </main>
 

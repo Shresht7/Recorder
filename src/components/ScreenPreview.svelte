@@ -1,8 +1,8 @@
 <script lang="ts">
+    //  Components
     import Button from "./utility/Button.svelte";
 
-    /** Display Media Stream */
-    export let stream: MediaStream;
+    import stream from "../library/stream";
 
     /** Sets the video-element srcObject property to the given media-stream */
     function srcObject(node: HTMLVideoElement, stream: MediaStream) {
@@ -21,8 +21,8 @@
 </script>
 
 <div>
-    <p>{stream.id}</p>
-    <video use:srcObject={stream} autoplay muted height={600} width={800} />
+    <p>{$stream.id}</p>
+    <video use:srcObject={$stream} autoplay muted height={600} width={800} />
 
     <div>
         <Button>Start</Button>
