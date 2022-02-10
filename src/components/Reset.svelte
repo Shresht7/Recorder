@@ -5,11 +5,6 @@
     //  Stores
     import stream from "../library/stream";
 
-    /** Start Display Capture */
-    function startCapture() {
-        stream.start();
-    }
-
     /** Stop Display Capture */
     function stopCapture() {
         const tracks = $stream.getTracks();
@@ -18,10 +13,4 @@
     }
 </script>
 
-<div>
-    <Button on:click={startCapture}>Select Screen</Button>
-    <Button on:click={stopCapture}>Reset</Button>
-</div>
-
-<style>
-</style>
+<Button on:click={stopCapture}>Reset</Button>

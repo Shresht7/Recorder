@@ -1,6 +1,7 @@
 <script lang="ts">
     //  Components
-    import Capture from "./Capture.svelte";
+    import SelectScreen from "./SelectScreen.svelte";
+    import Reset from "./Reset.svelte";
     import Record from "./Record.svelte";
 
     //  Store
@@ -8,8 +9,10 @@
 </script>
 
 <div>
-    <Capture />
-    {#if $stream}
+    {#if !$stream}
+        <SelectScreen />
+    {:else}
+        <Reset />
         <Record />
     {/if}
 </div>
@@ -19,7 +22,8 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        gap: 1rem;
     }
 </style>
