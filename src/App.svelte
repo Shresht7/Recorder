@@ -2,11 +2,13 @@
   //  Components
   import VideoPreview from "./components/VideoPreview.svelte";
   import Capture from "./components/Capture.svelte";
+  import Record from "./components/Record.svelte";
 </script>
 
 <main>
-  <VideoPreview />
   <Capture />
+  <VideoPreview />
+  <Record />
 </main>
 
 <style>
@@ -43,5 +45,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
   }
 </style>
