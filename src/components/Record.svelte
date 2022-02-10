@@ -5,14 +5,20 @@
     //  Stores
     import stream from "../library/stream";
 
+    /** Download Button */
     let download: HTMLAnchorElement;
 
+    /** MediaRecorder */
+    let recorder: MediaRecorder;
+
     async function startRecording() {
+        //  Instantiate a media recorder from the selected stream
         const mediaRecorderOptions: MediaRecorderOptions = {
             mimeType: "video/webm",
         };
-        const recorder = new MediaRecorder($stream, mediaRecorderOptions);
+        recorder = new MediaRecorder($stream, mediaRecorderOptions);
 
+        //  Collect blobs of data
         let data: Blob[] = [];
         recorder.addEventListener("dataavailable", (e) => {
             if (e.data.size <= 0) {
@@ -21,8 +27,10 @@
             data.push(e.data);
         });
 
+        //  Start Recorder
         recorder.start();
 
+        //  Await fulfillment
         await Promise.all([
             new Promise((resolve, reject) => {
                 recorder.addEventListener("stop", resolve);
@@ -36,20 +44,51 @@
         return data;
     }
 
+    /** Record stream and link to download button */
     async function record() {
         startRecording().then((chunks) => {
             const blob = new Blob(chunks, { type: "video/webm" });
             const url = URL.createObjectURL(blob);
             download.href = url;
             download.download = "test.webm";
+            download.style.display = "block";
         });
+    }
+
+    function pauseRecording() {
+        recorder?.pause();
+    }
+
+    function continueRecording() {
+        recorder?.resume();
+    }
+
+    function stopRecording() {
+        recorder?.stop();
     }
 </script>
 
 <div>
-    <Button on:click={record}>Record</Button>
-    <a bind:this={download} href="_" download="test.webm">Download</a>
+    {#if recorder?.state}
+        {recorder.state}
+    {/if}
+    {#if !recorder?.state}
+        <Button on:click={record}>Record</Button>
+    {/if}
+    {#if recorder?.state === "paused"}
+        <Button on:click={continueRecording}>Continue</Button>
+    {/if}
+    {#if recorder?.state === "recording"}
+        <Button on:click={pauseRecording}>Pause</Button>
+        <Button on:click={stopRecording}>Stop</Button>
+    {/if}
+    <a id="download" bind:this={download} href="_" download="test.webm"
+        >Download</a
+    >
 </div>
 
 <style>
+    #download {
+        display: none;
+    }
 </style>
