@@ -1,14 +1,12 @@
 <script lang="ts">
   //  Components
   import VideoPreview from "./components/VideoPreview.svelte";
-  import Capture from "./components/Capture.svelte";
-  import Record from "./components/Record.svelte";
+  import ControlPanel from "./components/ControlPanel.svelte";
 </script>
 
 <main>
-  <Capture />
+  <ControlPanel />
   <VideoPreview />
-  <Record />
 </main>
 
 <style>
