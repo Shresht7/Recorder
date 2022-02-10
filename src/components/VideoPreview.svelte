@@ -9,8 +9,8 @@
     $: if (videoElement) videoElement.srcObject = $stream;
 </script>
 
-<div class="video-container">
-    {#if $stream}
+{#if $stream}
+    <div class="video-container">
         <video
             bind:this={videoElement}
             autoplay
@@ -18,8 +18,8 @@
             height={450}
             width={800}
         />
-    {/if}
-</div>
+    </div>
+{/if}
 
 <style>
     .video-container {
