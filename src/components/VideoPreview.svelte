@@ -23,8 +23,9 @@
 
 <style>
     .video-container {
-        height: 450px;
-        width: 800px;
-        background-color: gray;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
