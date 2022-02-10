@@ -1,40 +1,12 @@
 <script lang="ts">
   //  Components
-  import Button from "./utility/Button.svelte";
-
-  //  Stores
-  import stream from "./library/stream";
-
-  /** Preview Video Element */
-  let videoElement: HTMLVideoElement;
-
-  //  Update the videoElement srcObject whenever the stream changes
-  $: if (videoElement) videoElement.srcObject = $stream;
-
-  /** Start Display Capture */
-  function startCapture() {
-    stream.start();
-  }
-
-  /** Stop Display Capture */
-  function stopCapture() {
-    const tracks = $stream.getTracks();
-    tracks.forEach((track) => track.stop());
-    stream.stop();
-  }
+  import VideoPreview from "./components/VideoPreview.svelte";
+  import Capture from "./components/Capture.svelte";
 </script>
 
 <main>
-  <div class="video-container">
-    {#if $stream}
-      <video bind:this={videoElement} autoplay muted height={450} width={800} />
-    {/if}
-  </div>
-
-  <div>
-    <Button on:click={startCapture}>Start</Button>
-    <Button on:click={stopCapture}>Stop</Button>
-  </div>
+  <VideoPreview />
+  <Capture />
 </main>
 
 <style>
@@ -71,11 +43,5 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  .video-container {
-    height: 450px;
-    width: 800px;
-    background-color: gray;
   }
 </style>

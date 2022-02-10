@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 
 function createStreamStore() {
-    const { subscribe, set } = writable<MediaStream>(null)
+    const { subscribe, set } = writable<MediaStream>()
 
     /** Prompts the user to select a screen to capture and sets the media stream */
     function start() {
