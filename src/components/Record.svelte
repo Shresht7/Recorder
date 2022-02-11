@@ -7,40 +7,33 @@
     import stream from "../library/stream";
     import timer from "../library/timer";
 
+    /** Media Recorder Options */
+    let options: MediaRecorderOptions = { mimeType: "video/webm" };
+
     /** MediaRecorder */
     let recorder: MediaRecorder;
+    $: recorder = new MediaRecorder($stream, options);
 
-    async function startRecording() {
-        //  Instantiate a media recorder from the selected stream
-        const mediaRecorderOptions: MediaRecorderOptions = {
-            mimeType: "video/webm",
-        };
-        recorder = new MediaRecorder($stream, mediaRecorderOptions);
+    /** Recording state */
+    let state: RecordingState | "" = "";
 
+    /** Creates a closure and starts the recording process that returns a promise of the data-blob */
+    async function record() {
         //  Collect blobs of data
         let data: Blob[] = [];
         recorder.addEventListener("dataavailable", (e) => {
-            if (e.data.size <= 0) {
-                return;
-            }
+            if (e.data.size <= 0) return;
             data.push(e.data);
         });
 
         //  Start Recorder
         recorder.start();
-        timer.start();
 
         //  Await fulfillment
-        await Promise.all([
-            new Promise((resolve, reject) => {
-                recorder.addEventListener("stop", resolve);
-                recorder.addEventListener("error", (e) =>
-                    reject(e.error.message)
-                );
-            }),
-            () => recorder.state === "recording" && recorder.stop(),
-            () => timer.stop(),
-        ]);
+        await new Promise((resolve, reject) => {
+            recorder.addEventListener("stop", resolve);
+            recorder.addEventListener("error", (e) => reject(e.error));
+        });
 
         return data;
     }
@@ -52,47 +45,64 @@
         visible: false,
     };
 
-    /** Record stream and link to download button */
-    async function record() {
-        startRecording().then((chunks) => {
-            const blob = new Blob(chunks, { type: "video/webm" });
-            const url = URL.createObjectURL(blob);
-            download.href = url;
-            download.download = "test.webm";
-            download.visible = true;
-        });
+    /** Start the recording process */
+    async function startRecording() {
+        timer.start();
+        state = "recording";
+        record()
+            .then((chunks) => {
+                recorder.state === "recording" && recorder.stop();
+                timer.stop();
+                state = "inactive";
+                const blob = new Blob(chunks, { type: "video/webm" });
+                download.href = URL.createObjectURL(blob);
+                download.download = "test.webm";
+                download.visible = true;
+            })
+            .catch((err) => console.error(err));
     }
 
+    /** Pause the recording process */
     function pauseRecording() {
         recorder.pause();
         timer.pause();
+        state = "paused";
     }
 
+    /** Resume the recording process */
     function continueRecording() {
         recorder.resume();
         timer.resume();
+        state = "recording";
     }
 
+    /** Stop the recording process */
     function stopRecording() {
         recorder.stop();
         timer.stop();
+        state = "inactive";
     }
 </script>
 
 <div>
-    {#if recorder?.state}
-        <p>{recorder.state} {$timer}s</p>
+    {#if state !== "" && state !== "inactive"}
+        <p>{state} {$timer}s</p>
     {/if}
-    {#if !recorder?.state}
-        <Button on:click={record}>Record</Button>
+
+    {#if state === ""}
+        <Button on:click={startRecording}>Record</Button>
     {/if}
-    {#if recorder?.state === "paused"}
+
+    {#if state === "paused"}
         <Button on:click={continueRecording}>Continue</Button>
+        <Button on:click={stopRecording}>Stop</Button>
     {/if}
-    {#if recorder?.state === "recording"}
+
+    {#if state === "recording"}
         <Button on:click={pauseRecording}>Pause</Button>
         <Button on:click={stopRecording}>Stop</Button>
     {/if}
+
     <Download {...download} />
 </div>
 
