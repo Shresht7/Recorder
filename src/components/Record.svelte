@@ -49,6 +49,7 @@
     async function startRecording() {
         timer.start();
         state = "recording";
+        //  TODO: Add and show countdown
         record()
             .then((chunks) => {
                 recorder.state === "recording" && recorder.stop();

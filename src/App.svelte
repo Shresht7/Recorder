@@ -4,6 +4,8 @@
   import ControlPanel from "./components/ControlPanel.svelte";
 </script>
 
+<!-- TODO: Show a notice for mobile users saying Screen Capture API is desktop only -->
+
 <main>
   <ControlPanel />
   <VideoPreview />
