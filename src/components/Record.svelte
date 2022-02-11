@@ -1,13 +1,11 @@
 <script lang="ts">
     //  Components
     import Button from "./utility/Button.svelte";
+    import Download from "./Download.svelte";
 
     //  Stores
     import stream from "../library/stream";
     import timer from "../library/timer";
-
-    /** Download Button */
-    let download: HTMLAnchorElement;
 
     /** MediaRecorder */
     let recorder: MediaRecorder;
@@ -47,6 +45,13 @@
         return data;
     }
 
+    /** Download props */
+    let download = {
+        href: "",
+        download: "test.webm",
+        visible: false,
+    };
+
     /** Record stream and link to download button */
     async function record() {
         startRecording().then((chunks) => {
@@ -54,7 +59,7 @@
             const url = URL.createObjectURL(blob);
             download.href = url;
             download.download = "test.webm";
-            download.style.display = "block";
+            download.visible = true;
         });
     }
 
@@ -88,13 +93,8 @@
         <Button on:click={pauseRecording}>Pause</Button>
         <Button on:click={stopRecording}>Stop</Button>
     {/if}
-    <a id="download" bind:this={download} href="_" download="test.webm"
-        >Download</a
-    >
+    <Download {...download} />
 </div>
 
 <style>
-    #download {
-        display: none;
-    }
 </style>
