@@ -10,19 +10,13 @@
 </script>
 
 {#if $stream}
-    <div class="video-container">
-        <video
-            bind:this={videoElement}
-            autoplay
-            muted
-            height={450}
-            width={800}
-        />
+    <div>
+        <video bind:this={videoElement} autoplay muted width="100%" />
     </div>
 {/if}
 
 <style>
-    .video-container {
+    div {
         width: 100%;
         display: flex;
         justify-content: center;
