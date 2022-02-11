@@ -2,6 +2,7 @@
     //  Components
     import Button from "./utility/Button.svelte";
     import Download from "./Download.svelte";
+    import Status from "./Recording/Status.svelte";
 
     //  Stores
     import stream from "../library/stream";
@@ -87,7 +88,7 @@
 
 <div>
     {#if state !== "" && state !== "inactive"}
-        <p>{state} {$timer}s</p>
+        <Status {state} timer={$timer} />
     {/if}
 
     {#if state === ""}
