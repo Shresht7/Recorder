@@ -13,4 +13,4 @@
     }
 </script>
 
-<Button on:click={stopCapture}>Reset</Button>
+<Button on:click={stopCapture}>Discard</Button>

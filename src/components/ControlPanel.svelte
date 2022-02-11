@@ -1,7 +1,7 @@
 <script lang="ts">
     //  Components
     import SelectScreen from "./SelectScreen.svelte";
-    import Reset from "./Reset.svelte";
+    import Discard from "./Discard.svelte";
     import Record from "./Record.svelte";
 
     //  Store
@@ -12,7 +12,7 @@
     {#if !$stream}
         <SelectScreen />
     {:else}
-        <Reset />
+        <Discard />
         <Record />
     {/if}
 </div>
