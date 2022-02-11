@@ -4,6 +4,7 @@
 
     //  Stores
     import stream from "../library/stream";
+    import timer from "../library/timer";
 
     /** Download Button */
     let download: HTMLAnchorElement;
@@ -29,6 +30,7 @@
 
         //  Start Recorder
         recorder.start();
+        timer.start();
 
         //  Await fulfillment
         await Promise.all([
@@ -39,6 +41,7 @@
                 );
             }),
             () => recorder.state === "recording" && recorder.stop(),
+            () => timer.stop(),
         ]);
 
         return data;
@@ -56,21 +59,24 @@
     }
 
     function pauseRecording() {
-        recorder?.pause();
+        recorder.pause();
+        timer.pause();
     }
 
     function continueRecording() {
-        recorder?.resume();
+        recorder.resume();
+        timer.resume();
     }
 
     function stopRecording() {
-        recorder?.stop();
+        recorder.stop();
+        timer.stop();
     }
 </script>
 
 <div>
     {#if recorder?.state}
-        {recorder.state}
+        <p>{recorder.state} {$timer}s</p>
     {/if}
     {#if !recorder?.state}
         <Button on:click={record}>Record</Button>
