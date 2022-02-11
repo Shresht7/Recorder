@@ -19,9 +19,14 @@ function createDownloadStore() {
         })
     }
 
+    function clearDownload() {
+        set(download)
+    }
+
     return {
         subscribe,
-        setDownload
+        setDownload,
+        clearDownload
     }
 
 }

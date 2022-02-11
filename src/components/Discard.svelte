@@ -4,12 +4,14 @@
 
     //  Stores
     import stream from "../library/stream";
+    import download from "../library/download";
 
     /** Stop Display Capture */
     function stopCapture() {
         const tracks = $stream.getTracks();
         tracks.forEach((track) => track.stop());
         stream.stop();
+        download.clearDownload();
     }
 </script>
 
