@@ -13,4 +13,4 @@
     }
 </script>
 
-<Button on:click={stopCapture}>Discard</Button>
+<Button primary={false} on:click={stopCapture}>Discard</Button>

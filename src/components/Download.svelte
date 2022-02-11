@@ -14,8 +14,8 @@
         text-decoration: none;
         font-family: inherit;
         font-size: var(--btn-font-size, 1rem);
-        color: var(--clr-highlight, white);
         padding: 0.5em 1em;
+        color: var(--clr-highlight, white);
         background-color: var(--clr-primary, black);
         border: 2px solid var(--clr-primary, black);
         border-radius: 12px;

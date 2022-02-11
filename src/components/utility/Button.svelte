@@ -1,7 +1,8 @@
 <script lang="ts">
+    export let primary: boolean = true;
 </script>
 
-<button on:click>
+<button class:primary class:secondary={!primary} on:click>
     <slot />
 </button>
 
@@ -9,9 +10,7 @@
     button {
         font: inherit;
         font-size: var(--btn-font-size, 1rem);
-        color: var(--clr-primary, black);
         padding: 0.5em 1em;
-        border: 2px solid var(--clr-primary, black);
         border-radius: 12px;
         transition: all 200ms;
         cursor: pointer;
@@ -19,5 +18,16 @@
 
     button:hover {
         transform: scale(1.05);
+    }
+
+    .primary {
+        color: var(--clr-highlight, white);
+        background-color: var(--clr-primary, black);
+        border: 2px solid var(--clr-primary, black);
+    }
+
+    .secondary {
+        color: var(--clr-primary, black);
+        border: 2px solid var(--clr-primary, black);
     }
 </style>
