@@ -22,7 +22,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         gap: 1rem;
     }
