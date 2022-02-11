@@ -16,8 +16,11 @@
         cursor: pointer;
     }
 
-    button:hover {
+    button:hover,
+    button:focus {
         transform: scale(1.05);
+        outline: 2px solid var(--clr-primary, black);
+        outline-offset: 2px;
     }
 
     .primary {
