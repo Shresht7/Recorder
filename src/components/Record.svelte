@@ -7,6 +7,7 @@
     //  Stores
     import stream from "../library/stream";
     import timer from "../library/timer";
+    import download from "../library/download";
 
     /** Media Recorder Options */
     let options: MediaRecorderOptions = { mimeType: "video/webm" };
@@ -39,13 +40,6 @@
         return data;
     }
 
-    /** Download props */
-    let download = {
-        href: "",
-        download: "test.webm",
-        visible: false,
-    };
-
     /** Start the recording process */
     async function startRecording() {
         timer.start();
@@ -57,9 +51,7 @@
                 timer.stop();
                 state = "inactive";
                 const blob = new Blob(chunks, { type: "video/webm" });
-                download.href = URL.createObjectURL(blob);
-                download.download = "test.webm";
-                download.visible = true;
+                download.setDownload(URL.createObjectURL(blob), "test.webm");
             })
             .catch((err) => console.error(err));
     }
@@ -105,7 +97,7 @@
         <Button on:click={stopRecording}>Stop</Button>
     {/if}
 
-    <Download {...download} />
+    <Download {...$download} />
 </div>
 
 <style>
