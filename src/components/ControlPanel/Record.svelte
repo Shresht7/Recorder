@@ -2,13 +2,12 @@
     //  Components
     import Button from "../utility/Button.svelte";
     import Download from "./Download.svelte";
-    import Status from "./Status.svelte";
 
     //  Stores
     import stream from "../../library/stream";
     import { state, countdown } from "../../library/recording";
-    import timer from "../../library/timer";
     import download from "../../library/download";
+    import timer from "../../library/timer";
 
     /** Media Recorder Options */
     let options: MediaRecorderOptions = { mimeType: "video/webm" };

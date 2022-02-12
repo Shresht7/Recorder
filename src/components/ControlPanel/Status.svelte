@@ -1,7 +1,9 @@
 <script lang="ts">
+    //  Props
     export let state: RecordingState;
     export let timer: number = 0;
 
+    //  Formats the time for display
     function format(time: number) {
         let seconds = Math.floor(time % 60);
         let minutes = Math.floor((time / 60) % 60);
@@ -53,29 +55,24 @@
         height: 1.75ch;
     }
 
-    .paused::before {
-        position: absolute;
-        content: "";
-        width: 0.5ch;
-        height: 1.75ch;
-        background-color: black;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        transform: translate(75%);
-    }
-
+    .paused::before,
     .paused::after {
         position: absolute;
         content: "";
         width: 0.5ch;
         height: 1.75ch;
-        background-color: black;
+        background-color: var(--clr-text);
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+    }
+
+    .paused::before {
+        transform: translate(75%);
+    }
+
+    .paused::after {
         transform: translate(+225%);
     }
 </style>
