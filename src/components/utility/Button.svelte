@@ -29,7 +29,7 @@
     }
 
     .primary {
-        color: var(--clr-highlight, white);
+        color: var(--clr-secondary, white);
         background-color: var(--clr-primary, black);
         border: 2px solid var(--clr-primary, black);
     }

@@ -24,13 +24,13 @@
 
 <style>
     .icon {
-        color: var(--clr-highlight, white);
+        color: var(--clr-secondary, white);
         width: 1.5rem;
         height: 1.5rem;
     }
 
     .primary {
-        color: var(--clr-highlight, white);
+        color: var(--clr-secondary, white);
     }
 
     .secondary {
