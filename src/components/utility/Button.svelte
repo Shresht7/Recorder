@@ -8,6 +8,11 @@
 
 <style>
     button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
         font: inherit;
         font-size: var(--btn-font-size, 1rem);
         padding: 0.5em 1em;

@@ -1,6 +1,7 @@
 <script lang="ts">
     //  Components
     import Button from "./utility/Button.svelte";
+    import Icon from "./utility/Icons.svelte";
 
     //  Stores
     import stream from "../library/stream";
@@ -11,4 +12,7 @@
     }
 </script>
 
-<Button on:click={startCapture}>Select Screen</Button>
+<Button on:click={startCapture}>
+    <Icon name="desktop" />
+    Select Screen
+</Button>
