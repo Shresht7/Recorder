@@ -18,11 +18,13 @@
         <div class="flex start">
             <Discard />
         </div>
+
         <div class="flex center">
             {#if $state !== "" && $state !== "inactive"}
                 <Status state={$state} timer={$timer} />
             {/if}
         </div>
+
         <div class="flex end">
             <Record />
         </div>

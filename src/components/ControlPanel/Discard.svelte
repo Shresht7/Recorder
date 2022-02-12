@@ -16,12 +16,10 @@
     }
 </script>
 
-<Button primary={false} on:click={stopCapture}>
-    {#if $download.visible}
-        <Icon name="discard" primary={false} />
-        Discard
-    {:else}
-        <Icon name="reset" primary={false} />
-        Reset
-    {/if}
-</Button>
+{#if $download.visible}
+    <Button primary={false} icon="discard" on:click={stopCapture}
+        >Discard</Button
+    >
+{:else}
+    <Button primary={false} icon="reset" on:click={stopCapture}>Reset</Button>
+{/if}

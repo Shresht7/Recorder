@@ -4,19 +4,22 @@
     import GoChevronLeft from "svelte-icons/go/GoChevronLeft.svelte";
     import GoTrashcan from "svelte-icons/go/GoTrashcan.svelte";
 
-    type icons = "desktop" | "reset" | "discard";
+    //  Type-Definitions
+    import type { icons } from "../../types";
 
-    export let name: icons = "desktop";
-    export let primary: boolean = true;
+    //  Props
+    export let name: icons;
 </script>
 
-<div class="icon" class:primary class:secondary={!primary}>
+<div class="icon">
     {#if name === "desktop"}
         <GoDeviceDesktop />
     {/if}
+
     {#if name === "reset"}
         <GoChevronLeft />
     {/if}
+
     {#if name === "discard"}
         <GoTrashcan />
     {/if}
@@ -24,16 +27,8 @@
 
 <style>
     .icon {
-        color: var(--clr-secondary, white);
+        color: var(--clr-text, white);
         width: 1.5rem;
         height: 1.5rem;
-    }
-
-    .primary {
-        color: var(--clr-secondary, white);
-    }
-
-    .secondary {
-        color: var(--clr-primary, black);
     }
 </style>

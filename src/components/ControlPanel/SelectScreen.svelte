@@ -12,7 +12,4 @@
     }
 </script>
 
-<Button on:click={startCapture}>
-    <Icon name="desktop" />
-    Select Screen
-</Button>
+<Button icon="desktop" on:click={startCapture}>Select Screen</Button>

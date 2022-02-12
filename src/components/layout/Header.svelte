@@ -4,7 +4,7 @@
 
 <header>
     <div />
-    <Button on:click={() => console.log("change color theme")}>X</Button>
+    <Button icon="reset" on:click={() => console.log("change color theme")} />
 </header>
 
 <style>
