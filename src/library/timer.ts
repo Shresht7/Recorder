@@ -38,12 +38,18 @@ function createTimer() {
         state = 'stopped'
     }
 
+    /** Clears the timer value */
+    function clear() {
+        set(0)
+    }
+
     return {
         subscribe,
         start,
         pause,
         resume,
-        stop
+        stop,
+        clear
     }
 }
 

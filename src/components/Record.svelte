@@ -40,6 +40,7 @@
 
     /** Start the recording process */
     async function startRecording() {
+        timer.clear();
         state.set("recording");
         await countdown.start();
         timer.start();
