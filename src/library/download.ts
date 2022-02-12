@@ -9,24 +9,24 @@ const download = {
 
 function createDownloadStore() {
 
-    const { subscribe, set } = writable<typeof download>(download)
+    const { subscribe, set: _set } = writable<typeof download>(download)
 
-    function setDownload(url: string, name: string = "test.webm") {
-        set({
+    function set(url: string, name: string = "test.webm") {
+        _set({
             href: url,
             download: name,
             visible: true
         })
     }
 
-    function clearDownload() {
-        set(download)
+    function clear() {
+        _set(download)
     }
 
     return {
         subscribe,
-        setDownload,
-        clearDownload
+        set,
+        clear
     }
 
 }

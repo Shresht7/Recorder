@@ -1,7 +1,6 @@
 <script lang="ts">
     //  Components
     import Button from "../utility/Button.svelte";
-    import Icon from "../utility/Icons.svelte";
 
     //  Stores
     import stream from "../../library/stream";
@@ -12,7 +11,7 @@
         const tracks = $stream.getTracks();
         tracks.forEach((track) => track.stop());
         stream.stop();
-        download.clearDownload();
+        download.clear();
     }
 </script>
 

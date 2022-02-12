@@ -50,7 +50,7 @@
                 timer.stop();
                 state.set("inactive");
                 const blob = new Blob(chunks, { type: "video/webm" });
-                download.setDownload(URL.createObjectURL(blob), "test.webm");
+                download.set(URL.createObjectURL(blob), "test.webm");
             })
             .catch((err) => console.error(err));
     }
