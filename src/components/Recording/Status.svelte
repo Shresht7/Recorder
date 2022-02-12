@@ -37,7 +37,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 1ch;
+        gap: 0.5ch;
     }
 
     .recording {
@@ -50,32 +50,32 @@
     .paused {
         position: relative;
         width: 2ch;
-        height: 2ch;
+        height: 1.75ch;
     }
 
     .paused::before {
         position: absolute;
         content: "";
         width: 0.5ch;
-        height: 2ch;
+        height: 1.75ch;
         background-color: black;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        transform: translate(-75%);
+        transform: translate(75%);
     }
 
     .paused::after {
         position: absolute;
         content: "";
         width: 0.5ch;
-        height: 2ch;
+        height: 1.75ch;
         background-color: black;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        transform: translate(+75%);
+        transform: translate(+225%);
     }
 </style>
