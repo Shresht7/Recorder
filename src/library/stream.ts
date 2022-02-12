@@ -8,10 +8,10 @@ function createStreamStore() {
         navigator.mediaDevices
             .getDisplayMedia({
                 video: true,
-                audio: true, //  TODO: turn these into checkboxes
+                audio: true,
             })
             .then((mediaStream) => set(mediaStream))
-            .catch((err) => console.error(err)); //  TODO: Show error message to user
+            .catch((err) => console.error(err));
     }
 
     /** Sets the store to null */
