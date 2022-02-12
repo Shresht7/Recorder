@@ -82,7 +82,7 @@
         <Status state={$state} timer={$timer} />
     {/if}
 
-    {#if $state === "" || $state === "inactive"}
+    {#if $state === "" || ($state === "inactive" && !$download.visible)}
         <Button on:click={startRecording}>Record</Button>
     {/if}
 
