@@ -1,6 +1,7 @@
 <script lang="ts">
     //  Stores
     import stream from "../library/stream";
+    import { countdown } from "../library/recording";
     import download from "../library/download";
 
     /** Preview Video Element */
@@ -16,18 +17,6 @@
             videoElement.srcObject = $stream;
         }
     }
-
-    let countdown = 0;
-    function startCountdown(n: number = 3) {
-        countdown = n;
-        const id = setInterval(() => {
-            if (countdown < 0) {
-                clearInterval(id);
-                return;
-            }
-            countdown -= 1;
-        }, 1000);
-    }
 </script>
 
 {#if $stream}
@@ -39,8 +28,8 @@
             muted
             width="100%"
         />
-        <div class="countdown" class:hide={countdown < 0}>
-            {countdown}
+        <div class="countdown" class:hide={$countdown <= 0}>
+            {$countdown}
         </div>
     </div>
 {/if}

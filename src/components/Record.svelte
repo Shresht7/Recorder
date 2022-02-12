@@ -6,6 +6,7 @@
 
     //  Stores
     import stream from "../library/stream";
+    import { state, countdown } from "../library/recording";
     import timer from "../library/timer";
     import download from "../library/download";
 
@@ -15,9 +16,6 @@
     /** MediaRecorder */
     let recorder: MediaRecorder;
     $: recorder = new MediaRecorder($stream, options);
-
-    /** Recording state */
-    let state: RecordingState | "" = "";
 
     /** Creates a closure and starts the recording process that returns a promise of the data-blob */
     async function record() {
@@ -42,14 +40,14 @@
 
     /** Start the recording process */
     async function startRecording() {
+        state.set("recording");
+        await countdown.start();
         timer.start();
-        state = "recording";
-        //  TODO: Add and show countdown
         record()
             .then((chunks) => {
                 recorder.state === "recording" && recorder.stop();
                 timer.stop();
-                state = "inactive";
+                state.set("inactive");
                 const blob = new Blob(chunks, { type: "video/webm" });
                 download.setDownload(URL.createObjectURL(blob), "test.webm");
             })
@@ -60,39 +58,39 @@
     function pauseRecording() {
         recorder.pause();
         timer.pause();
-        state = "paused";
+        state.set("paused");
     }
 
     /** Resume the recording process */
     function continueRecording() {
         recorder.resume();
         timer.resume();
-        state = "recording";
+        state.set("recording");
     }
 
     /** Stop the recording process */
     function stopRecording() {
         recorder.stop();
         timer.stop();
-        state = "inactive";
+        state.set("inactive");
     }
 </script>
 
 <div>
-    {#if state !== "" && state !== "inactive"}
-        <Status {state} timer={$timer} />
+    {#if $state !== "" && $state !== "inactive"}
+        <Status state={$state} timer={$timer} />
     {/if}
 
-    {#if state === ""}
+    {#if $state === "" || $state === "inactive"}
         <Button on:click={startRecording}>Record</Button>
     {/if}
 
-    {#if state === "paused"}
+    {#if $state === "paused"}
         <Button on:click={continueRecording}>Continue</Button>
         <Button on:click={stopRecording}>Stop</Button>
     {/if}
 
-    {#if state === "recording"}
+    {#if $state === "recording"}
         <Button on:click={pauseRecording}>Pause</Button>
         <Button on:click={stopRecording}>Stop</Button>
     {/if}
