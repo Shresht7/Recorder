@@ -6,8 +6,6 @@
   import Footer from "./components/layout/Footer.svelte";
 </script>
 
-<!-- TODO: Show a notice for mobile users saying Screen Capture API is desktop only -->
-
 <main>
   <Header />
   <ControlPanel />
@@ -25,7 +23,7 @@
   :global(:root) {
     --clr-primary: orangered;
     --clr-secondary: whitesmoke;
-    --clr-text: #3e3e3e;
+    --clr-text: #333;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -40,7 +38,7 @@
     height: 100vh;
     font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background-color: var(--clr-secondary, #e3e3e3);
+    background-color: var(--clr-secondary, whitesmoke);
     color: var(--clr-text, black);
   }
 

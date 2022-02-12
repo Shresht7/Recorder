@@ -25,7 +25,7 @@
         align-items: center;
         gap: 0.5em;
         font: inherit;
-        font-size: var(--btn-font-size, 1rem);
+        font-size: 1rem;
         color: var(--clr-text, black);
         padding: 0.5em 1em;
         border-radius: 12px;
@@ -41,7 +41,7 @@
     }
 
     .primary {
-        color: var(--clr-text, white);
+        color: var(--clr-text, whitesmoke);
         background-color: var(--clr-primary, black);
         border: 2px solid var(--clr-primary, black);
     }

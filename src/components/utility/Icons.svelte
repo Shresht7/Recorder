@@ -27,7 +27,7 @@
 
 <style>
     .icon {
-        color: var(--clr-text, white);
+        color: var(--clr-text, whitesmoke);
         width: 1.5rem;
         height: 1.5rem;
     }
