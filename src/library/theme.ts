@@ -25,3 +25,7 @@ function createThemeStore() {
     }
 
 }
+
+//  -----------------------------
+export default createThemeStore()
+//  -----------------------------

@@ -1,10 +1,17 @@
 <script lang="ts">
+    //  Components
     import Button from "../utility/Button.svelte";
+
+    //  Theme
+    import theme from "../../library/theme";
 </script>
 
 <header>
     <div />
-    <Button icon="reset" on:click={() => console.log("change color theme")} />
+    <Button
+        icon={$theme === "light" ? "moon" : "sun"}
+        on:click={() => theme.toggle()}
+    />
 </header>
 
 <style>
