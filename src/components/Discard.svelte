@@ -1,6 +1,7 @@
 <script lang="ts">
     //  Components
     import Button from "./utility/Button.svelte";
+    import Icon from "./utility/Icons.svelte";
 
     //  Stores
     import stream from "../library/stream";
@@ -17,8 +18,10 @@
 
 <Button primary={false} on:click={stopCapture}>
     {#if $download.visible}
+        <Icon name="discard" primary={false} />
         Discard
     {:else}
+        <Icon name="reset" primary={false} />
         Reset
     {/if}
 </Button>
