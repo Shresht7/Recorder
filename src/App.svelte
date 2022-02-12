@@ -2,7 +2,7 @@
   //  Components
   import Header from "./components/layout/Header.svelte";
   import VideoPreview from "./components/VideoPreview.svelte";
-  import ControlPanel from "./components/ControlPanel.svelte";
+  import ControlPanel from "./components/ControlPanel/ControlPanel.svelte";
   import Footer from "./components/layout/Footer.svelte";
 </script>
 
@@ -25,12 +25,14 @@
   :global(:root) {
     --clr-primary: orangered;
     --clr-secondary: whitesmoke;
+    --clr-text: #3e3e3e;
   }
 
   @media (prefers-color-scheme: dark) {
     :global(:root) {
       --clr-primary: orangered;
       --clr-secondary: #333;
+      --clr-text: whitesmoke;
     }
   }
 
@@ -39,6 +41,7 @@
     font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     background-color: var(--clr-secondary, #e3e3e3);
+    color: var(--clr-text, black);
   }
 
   :global(#app) {

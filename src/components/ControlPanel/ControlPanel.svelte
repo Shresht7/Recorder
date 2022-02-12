@@ -3,12 +3,12 @@
     import SelectScreen from "./SelectScreen.svelte";
     import Discard from "./Discard.svelte";
     import Record from "./Record.svelte";
-    import Status from "./Recording/Status.svelte";
+    import Status from "./Status.svelte";
 
     //  Store
-    import stream from "../library/stream";
-    import { state } from "../library/recording";
-    import timer from "../library/timer";
+    import stream from "../../library/stream";
+    import { state } from "../../library/recording";
+    import timer from "../../library/timer";
 </script>
 
 {#if !$stream}
