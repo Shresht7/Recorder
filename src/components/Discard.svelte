@@ -15,4 +15,10 @@
     }
 </script>
 
-<Button primary={false} on:click={stopCapture}>Discard</Button>
+<Button primary={false} on:click={stopCapture}>
+    {#if $download.visible}
+        Discard
+    {:else}
+        Reset
+    {/if}
+</Button>
