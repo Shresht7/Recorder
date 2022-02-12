@@ -16,6 +16,18 @@
             videoElement.srcObject = $stream;
         }
     }
+
+    let countdown = 0;
+    function startCountdown(n: number = 3) {
+        countdown = n;
+        const id = setInterval(() => {
+            if (countdown < 0) {
+                clearInterval(id);
+                return;
+            }
+            countdown -= 1;
+        }, 1000);
+    }
 </script>
 
 {#if $stream}
@@ -27,6 +39,9 @@
             muted
             width="100%"
         />
+        <div class="countdown" class:hide={countdown < 0}>
+            {countdown}
+        </div>
     </div>
 {/if}
 
@@ -36,5 +51,27 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+    }
+
+    .countdown {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10rem;
+        color: whitesmoke;
+        background-color: black;
+        opacity: 0.5;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .hide {
+        display: none;
     }
 </style>
