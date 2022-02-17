@@ -4,12 +4,15 @@
 
     //  Theme
     import theme from "../../theme/store";
+
+    let mode: "light" | "dark" = "light";
+    $: mode = $theme ? theme.getCurrentTheme() : "light";
 </script>
 
 <header>
     <div />
     <Button
-        icon={$theme === "light" ? "moon" : "sun"}
+        icon={mode === "light" ? "moon" : "sun"}
         on:click={() => theme.toggle()}
     />
 </header>

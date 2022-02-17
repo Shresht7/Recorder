@@ -1,9 +1,19 @@
 <script lang="ts">
+  //  Library
+  import { onMount } from "svelte";
   //  Components
   import Header from "./components/layout/Header.svelte";
   import VideoPreview from "./components/VideoPreview.svelte";
   import ControlPanel from "./components/ControlPanel/ControlPanel.svelte";
   import Footer from "./components/layout/Footer.svelte";
+
+  //  Themes
+  import theme from "./theme/store";
+
+  //  Initialize theme
+  onMount(() => {
+    theme.setRootColors($theme);
+  });
 </script>
 
 <main>
@@ -20,25 +30,11 @@
     padding: 0;
   }
 
-  :global(:root) {
-    --clr-primary: orangered;
-    --clr-secondary: whitesmoke;
-    --clr-text: #333;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :global(:root) {
-      --clr-primary: orangered;
-      --clr-secondary: #333;
-      --clr-text: whitesmoke;
-    }
-  }
-
   :global(body) {
     height: 100vh;
     font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background-color: var(--clr-secondary, whitesmoke);
+    background-color: var(--clr-background, whitesmoke);
     color: var(--clr-text, black);
   }
 
