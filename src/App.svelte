@@ -44,12 +44,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
   }
 
   main {
-    height: clamp(90vh, 80vh, 720px);
-    width: clamp(90vw, 80vw, 720px);
+    height: clamp(95vh, 80vh, 720px);
+    width: clamp(95vw, 80vw, 720px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
