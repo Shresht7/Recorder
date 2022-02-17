@@ -3,7 +3,7 @@
     import Button from "../utility/Button.svelte";
 
     //  Theme
-    import theme from "../../library/theme";
+    import theme from "../../theme/store";
 </script>
 
 <header>
