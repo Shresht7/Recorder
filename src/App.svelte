@@ -48,12 +48,12 @@
   }
 
   main {
-    height: clamp(90vw, 80vh, 720px);
-    width: clamp(90vw, 80vh, 720px);
+    height: clamp(90vh, 80vh, 720px);
+    width: clamp(90vw, 80vw, 720px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.25rem;
   }
 </style>
