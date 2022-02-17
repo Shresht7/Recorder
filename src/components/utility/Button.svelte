@@ -41,6 +41,7 @@
     }
 
     .primary {
+        --clr-text: var(--clr-secondary);
         color: var(--clr-text, whitesmoke);
         background-color: var(--clr-primary, black);
         border: 2px solid var(--clr-primary, black);
