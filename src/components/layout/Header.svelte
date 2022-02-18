@@ -1,5 +1,6 @@
 <script lang="ts">
     //  Components
+    import Info from "./Info.svelte";
     import Button from "../utility/Button.svelte";
 
     //  Theme
@@ -12,7 +13,7 @@
 <header>
     <div />
     <div>
-        <Button primary={false}><span>i</span></Button>
+        <Info />
         <Button
             primary={false}
             icon={mode === "light" ? "moon" : "sun"}
@@ -36,9 +37,5 @@
         justify-content: space-between;
         align-items: center;
         gap: 0.5rem;
-    }
-
-    span {
-        font-weight: 900;
     }
 </style>
