@@ -45,6 +45,11 @@
         padding: 0 1rem;
     }
 
+    video {
+        border-radius: 5px;
+        box-shadow: 5px 5px 15px 15px rgba(0, 0, 0, 0.25);
+    }
+
     .countdown {
         position: absolute;
         width: 100%;
