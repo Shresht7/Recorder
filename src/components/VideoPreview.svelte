@@ -27,7 +27,6 @@
             autoplay
             muted
             width="100%"
-            height="100%"
         />
         <div class="countdown" class:hide={$countdown <= 0}>
             {$countdown}
@@ -38,11 +37,12 @@
 <style>
     div {
         flex-grow: 1;
-        max-width: 90vw;
-        max-height: 70vh;
+        max-width: 70vw;
+        max-height: 75vh;
         display: grid;
         place-content: center;
         position: relative;
+        padding: 0 1rem;
     }
 
     .countdown {
