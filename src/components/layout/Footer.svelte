@@ -14,7 +14,7 @@
     footer {
         width: 100%;
         border-top: 1px solid var(--clr-text, whitesmoke);
-        opacity: 0.25;
+        opacity: 0.5;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -25,12 +25,15 @@
     a {
         color: var(--clr-text, whitesmoke);
         text-decoration: none;
-        opacity: 0.5;
         transition: var(--animation-duration, 125ms) ease-in;
+    }
+
+    a:visited {
+        color: var(--clr-text, whitesmoke);
     }
 
     a:hover,
     a:focus {
-        opacity: 1;
+        color: var(--clr-primary, orangered);
     }
 </style>
