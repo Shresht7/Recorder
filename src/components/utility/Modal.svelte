@@ -61,7 +61,7 @@
 
 <style>
     .modal {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -72,10 +72,11 @@
     }
 
     .backdrop {
+        z-index: 9;
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 0, 0, 0.88);
     }
 
     .content-wrapper {
@@ -84,6 +85,7 @@
         height: 60vh;
         padding: 1rem;
         overflow: hidden;
+        color: hsla(60, 100%, 89%, 1);
     }
 
     .content {
