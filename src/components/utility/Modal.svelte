@@ -1,6 +1,9 @@
 <script lang="ts">
     //  Library
+    import { fade } from "svelte/transition";
+
     import createBooleanStore from "../../library/boolean";
+
     let isOpen = createBooleanStore();
 
     function open() {
@@ -29,7 +32,12 @@
 </slot>
 
 {#if $isOpen}
-    <div class="modal" on:keydown={keydownHandler} tabindex={0}>
+    <div
+        class="modal"
+        on:keydown={keydownHandler}
+        tabindex={0}
+        transition:fade={{ duration: 67 }}
+    >
         <div class="backdrop" on:click={close} />
         <div class="content-wrapper">
             <div>
