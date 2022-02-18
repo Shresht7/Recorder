@@ -10,6 +10,9 @@
   //  Themes
   import theme from "./theme/store";
 
+  const screenCaptureSupported =
+    typeof navigator?.mediaDevices?.getDisplayMedia === "function";
+
   //  Initialize theme
   onMount(() => {
     theme.setRootColors($theme);
@@ -17,10 +20,14 @@
 </script>
 
 <main>
-  <Header />
-  <ControlPanel />
-  <VideoPreview />
-  <Footer />
+  {#if !screenCaptureSupported}
+    <h1>Not Supported</h1>
+  {:else}
+    <Header />
+    <ControlPanel />
+    <VideoPreview />
+    <Footer />
+  {/if}
 </main>
 
 <style>
