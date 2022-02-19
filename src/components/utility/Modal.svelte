@@ -85,6 +85,7 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.88);
+        backdrop-filter: blur(5px);
     }
 
     .content-wrapper {
