@@ -4,6 +4,7 @@
     import Toast from "../components/utility/Toast.svelte";
     import Button from "../components/utility/Button.svelte";
 
+    //  Register Service Worker
     const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
         onRegistered(swr) {
             console.log(`SW registered: ${swr}`);
@@ -13,16 +14,17 @@
         },
     });
 
+    /** Service worker on close handler */
     function close() {
         offlineReady.set(false);
         needRefresh.set(false);
     }
 
-    let shown: boolean = false;
-    $: shown = $offlineReady || $needRefresh;
+    let visible: boolean = false;
+    $: visible = $offlineReady || $needRefresh;
 </script>
 
-<Toast {shown}>
+<Toast {visible}>
     <div class="message" slot="message">
         {#if $offlineReady}
             <span> App ready to work offline </span>

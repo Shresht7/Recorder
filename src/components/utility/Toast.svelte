@@ -3,28 +3,33 @@
     import { fly } from "svelte/transition";
     import createBooleanStore from "../../library/boolean";
 
-    const isShown = createBooleanStore();
+    //  State Variable
+    const isVisible = createBooleanStore();
 
-    export let shown = false;
+    //  Props
+    export let visible = false;
     export let duration = 3000;
 
+    //  Set the toast message to be visible for the given duration
     let timeout: NodeJS.Timeout;
-    $: if (shown) {
-        isShown.set(true);
+    $: if (visible) {
+        isVisible.set(true);
         clearTimeout(timeout);
-        timeout = setTimeout(() => isShown.set(false), duration);
-        shown = false;
+        timeout = setTimeout(() => isVisible.set(false), duration);
+        visible = false;
     }
 </script>
 
-{#if $isShown}
+{#if $isVisible}
     <div class="toast" role="alert" transition:fly={{ y: 200, duration: 250 }}>
-        <div class="close" on:click={() => isShown.set(false)}>X</div>
+        <div class="close" on:click={() => isVisible.set(false)}>X</div>
+
         <div>
             <slot name="message">
                 <p>Svelte Toast</p>
             </slot>
         </div>
+
         <slot name="action" />
     </div>
 {/if}

@@ -95,7 +95,7 @@
     <Download {...$download} />
 </div>
 
-<Toast shown={$state === "recording" || $state === "paused"}>
+<Toast visible={$state === "recording" || $state === "paused"}>
     <p slot="message">{$state}</p>
 </Toast>
 
