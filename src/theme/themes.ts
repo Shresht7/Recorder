@@ -9,11 +9,15 @@ const themes: Record<themeMode, theme> = {
         primary: palette['--terra-cotta'],
         background: palette['--cream'],
         text: palette['--raisin-black'],
+        highlight: palette['--maximum-blue-purple'],
+        danger: palette['--red-ryb']
     },
     dark: {
         primary: palette['--terra-cotta'],
         background: palette['--raisin-black'],
         text: palette['--cream'],
+        highlight: palette['--maximum-blue-purple'],
+        danger: palette['--red-ryb']
     }
 }
 
