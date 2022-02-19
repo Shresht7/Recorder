@@ -1,28 +1,31 @@
 <script lang="ts">
   //  Library
   import { onMount } from "svelte";
+
   //  Components
   import Header from "./components/layout/Header.svelte";
   import VideoPreview from "./components/VideoPreview.svelte";
   import ControlPanel from "./components/ControlPanel/ControlPanel.svelte";
   import Footer from "./components/layout/Footer.svelte";
+  import NotSupported from "./components/NotSupported.svelte";
   import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
 
   //  Themes
   import theme from "./theme/store";
 
-  const screenCaptureSupported =
-    typeof navigator?.mediaDevices?.getDisplayMedia === "function";
-
   //  Initialize theme
   onMount(() => {
     theme.setRootColors($theme);
   });
+
+  /** Screen Capture API are supported by the user's device */
+  const screenCaptureSupported =
+    typeof navigator?.mediaDevices?.getDisplayMedia === "function";
 </script>
 
 <main>
   {#if !screenCaptureSupported}
-    <h1>Not Supported</h1>
+    <NotSupported />
   {:else}
     <Header />
     <ControlPanel />
