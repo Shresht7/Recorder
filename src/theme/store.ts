@@ -6,11 +6,29 @@ import { userPrefersDarkColorScheme } from '../helpers';
 //  Type definitions
 import type { theme, themeMode } from '../types'
 
+//  ---- Local Storage Key ------
+const COLOR_THEME = 'color-theme'
+//  -----------------------------
+
+/** Get User's Preferred Theme Mode */
+function getPreferredTheme(): themeMode {
+    const storage = localStorage.getItem(COLOR_THEME)
+    switch (storage) {
+        case 'light':
+            return 'light'
+        case 'dark':
+            return 'dark'
+        default:
+            return userPrefersDarkColorScheme()
+                ? 'dark'
+                : 'light'
+    }
+}
+
 function createThemeStore() {
 
-    let _current: themeMode = userPrefersDarkColorScheme()
-        ? "dark"
-        : "light";
+    /** The current theme mode */
+    let _current: themeMode = getPreferredTheme()
 
     /** Get the given theme */
     const getTheme = (name: themeMode) =>
@@ -28,6 +46,7 @@ function createThemeStore() {
         _current = _current === "light" ? "dark" : "light";
         update((t) => ({ ...t, ...getTheme(_current) }));
         setRootColors(getTheme(_current))
+        localStorage.setItem(COLOR_THEME, _current)
     }
 
     /** Set CSS Variables */
