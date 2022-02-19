@@ -23,7 +23,7 @@
 </script>
 
 <Toast {shown}>
-    <div class="message">
+    <div class="message" slot="message">
         {#if $offlineReady}
             <span> App ready to work offline </span>
         {:else}
@@ -31,12 +31,14 @@
         {/if}
     </div>
 
-    {#if $needRefresh}
-        <Button primary={false} on:click={() => updateServiceWorker(true)}>
-            Refresh
-        </Button>
-    {/if}
-    <Button primary={false} on:click={close}>Close</Button>
+    <div slot="action">
+        {#if $needRefresh}
+            <Button primary={false} on:click={() => updateServiceWorker(true)}>
+                Refresh
+            </Button>
+            <Button primary={false} on:click={close}>Close</Button>
+        {/if}
+    </div>
 </Toast>
 
 <style>
