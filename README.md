@@ -3,6 +3,8 @@
 
 A simple screen-recorder powered by the web!
 
+<!-- TODO: Add Screenshot -->
+
 ## Features
 
 - Powered by the web! Runs everywhere on a browser.
@@ -14,7 +16,7 @@ A simple screen-recorder powered by the web!
 
 1. Click on the `Select Screen` button. Your browser will prompt you to select the screen that you want to share with this app.
 2. Once a screen has been selected, a preview of the video stream will be shown. Click `Record` to start recording the screen.
-3. You can `Pause` and `Continue` the recording process whenever you wish. When you're done, click the `Stop` button. This will stop the recording process and show you the recorded video.
+3. You can `Pause` and `Continue` the recording process whenever you wish. When you're done, click the `Stop` button. This will stop the recording process and present you a preview the recorded video.
 4. Click on `Download` to save the recording to your device.
 
 Click on `Reset` or `Discard` to discard your recording at any stage.
@@ -25,13 +27,13 @@ The project is a Svelte Progressive-Web-App powered by Vite. Makes use of the Sc
 
 ### 1. Clone the repository
 
-Using git
+Clone the repository using git
 
 ```sh
 git clone https://github.com/Shresht7/Screen-Recorder.git
 ```
 
-or using GitHub CLI
+or using the GitHub CLI
 
 ```sh
 gh repo clone Shresht7/Screen-Recorder
