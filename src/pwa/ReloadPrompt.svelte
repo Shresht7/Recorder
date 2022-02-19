@@ -1,8 +1,8 @@
 <script lang="ts">
     //  Library
-    import Button from "src/components/utility/Button.svelte";
     import { useRegisterSW } from "virtual:pwa-register/svelte";
     import Toast from "../components/utility/Toast.svelte";
+    import Button from "../components/utility/Button.svelte";
 
     const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
         onRegistered(swr) {
