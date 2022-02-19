@@ -1,0 +1,43 @@
+<script lang="ts">
+    //  Library
+    import Button from "src/components/utility/Button.svelte";
+    import { useRegisterSW } from "virtual:pwa-register/svelte";
+    import Toast from "../components/utility/Toast.svelte";
+
+    const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
+        onRegistered(swr) {
+            console.log(`SW registered: ${swr}`);
+        },
+        onRegisterError(error) {
+            console.error(`SW registeration error: ${error}`);
+        },
+    });
+
+    function close() {
+        offlineReady.set(false);
+        needRefresh.set(false);
+    }
+
+    let shown: boolean = false;
+    $: shown = $offlineReady || $needRefresh;
+</script>
+
+<Toast {shown}>
+    <div class="message">
+        {#if $offlineReady}
+            <span> App ready to work offline </span>
+        {:else}
+            <span> Update available </span>
+        {/if}
+    </div>
+
+    {#if $needRefresh}
+        <Button primary={false} on:click={() => updateServiceWorker(true)}>
+            Refresh
+        </Button>
+    {/if}
+    <Button primary={false} on:click={close}>Close</Button>
+</Toast>
+
+<style>
+</style>
