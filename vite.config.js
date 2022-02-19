@@ -37,7 +37,7 @@ export default defineConfig({
             purpose: 'any maskable',
           }
         ],
-        display: standalone
+        display: "standalone"
       }
     })
   ]
