@@ -49,7 +49,7 @@
 
     .secondary {
         color: var(--clr-text, black);
-        background-color: var(--clr-background, black);
+        background-color: inherit;
         border: 2px solid var(--clr-primary, black);
     }
 </style>

@@ -6,12 +6,14 @@
 
 <Modal>
     <div slot="trigger" let:open>
-        <Button primary={false} on:click={open}><span>i</span></Button>
+        <Button primary={false} on:click={open}>i</Button>
     </div>
 
     <div slot="header" class="header" let:close>
         <h1>Screen-Recorder</h1>
-        <Button primary={false} on:click={close}>X</Button>
+        <Button primary={false} on:click={close}>
+            <span class="close">X</span>
+        </Button>
     </div>
 
     <div>
@@ -83,5 +85,9 @@
 
     li span {
         color: var(--clr-primary, orangered);
+    }
+
+    .close {
+        color: var(--clr-background, whitesmoke);
     }
 </style>
