@@ -33,7 +33,7 @@
         color: var(--clr-text, black);
         padding: 0.5em 1em;
         border-radius: 12px;
-        transition: all 200ms;
+        transition: all var(--animation-duration);
         cursor: pointer;
     }
 

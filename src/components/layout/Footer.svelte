@@ -25,7 +25,7 @@
     a {
         color: var(--clr-text, whitesmoke);
         text-decoration: none;
-        transition: var(--animation-duration, 125ms) ease-in;
+        transition: var(--animation-duration) ease-in;
     }
 
     a:visited {

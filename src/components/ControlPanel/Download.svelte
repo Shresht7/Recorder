@@ -19,7 +19,7 @@
         background-color: var(--clr-primary, black);
         border: 2px solid var(--clr-primary, black);
         border-radius: 12px;
-        transition: all 200ms;
+        transition: all var(--animation-duration);
         cursor: pointer;
     }
 
