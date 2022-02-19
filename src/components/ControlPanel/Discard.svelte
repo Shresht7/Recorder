@@ -16,9 +16,9 @@
 </script>
 
 {#if $download.visible}
-    <Button primary={false} icon="discard" on:click={stopCapture}
-        >Discard</Button
-    >
+    <Button primary={false} icon="discard" on:click={stopCapture}>
+        Discard
+    </Button>
 {:else}
     <Button primary={false} icon="reset" on:click={stopCapture}>Reset</Button>
 {/if}

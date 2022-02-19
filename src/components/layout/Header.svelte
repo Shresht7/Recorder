@@ -5,8 +5,9 @@
 
     //  Theme
     import theme from "../../theme/store";
+    import type { themeMode } from "src/types";
 
-    let mode: "light" | "dark" = "light";
+    let mode: themeMode = "light";
     $: mode = $theme ? theme.getCurrentTheme() : "light";
 </script>
 

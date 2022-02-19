@@ -48,7 +48,7 @@
                 3. You can <span>Pause</span> and <span>Continue</span> the
                 recording process whenever you wish. When you're done, click the
                 <span>Stop</span> button. This will stop the recording process and
-                show you the recorded video.
+                present you a preview of the recorded video.
             </li>
             <li>
                 4. Click on <span>Download</span> to save the recording to your device.

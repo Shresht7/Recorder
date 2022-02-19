@@ -44,7 +44,7 @@
   }
 
   :global(:root) {
-    --animation-duration: 250ms;
+    --animation-duration: 150ms;
   }
 
   @media (prefers-reduced-motion) {

@@ -4,6 +4,11 @@
 
     //  Stores
     import stream from "../../library/stream";
+
+    /** Begin capturing the stream */
+    function startCapture() {
+        stream.start();
+    }
 </script>
 
 <Button
@@ -11,7 +16,7 @@
     size="5rem"
     primary={false}
     square
-    on:click={() => stream.start()}
+    on:click={startCapture}
 >
     Select Screen
 </Button>
