@@ -6,7 +6,7 @@
   import VideoPreview from "./components/VideoPreview.svelte";
   import ControlPanel from "./components/ControlPanel/ControlPanel.svelte";
   import Footer from "./components/layout/Footer.svelte";
-  // import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
+  import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
 
   //  Themes
   import theme from "./theme/store";
@@ -31,9 +31,8 @@
   {/if}
 </main>
 
-<!--
-  <ReloadPrompt />
--->
+<ReloadPrompt />
+
 <style>
   :global(*, *::before, *::after) {
     box-sizing: border-box;
