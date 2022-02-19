@@ -1,12 +1,23 @@
 {
   "name": "screen-recorder",
+  "description": "A simple screen-recorder powered by the web!",
+  "author": "Shresht7",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/Shresht7/Screen-Recorder.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shresht7/Screen-Recorder/issues"
+  },
+  "homepage": "https://github.com/Shresht7/Screen-Recorder#README",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "serve": "npm run build && npm run preview",
     "build": "vite build",
     "preview": "vite preview",
+    "serve": "npm run build && npm run preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
