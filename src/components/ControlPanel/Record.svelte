@@ -2,6 +2,7 @@
     //  Components
     import Button from "../utility/Button.svelte";
     import Download from "./Download.svelte";
+    import Toast from "../utility/Toast.svelte";
 
     //  Stores
     import stream from "../../library/stream";
@@ -93,6 +94,10 @@
 
     <Download {...$download} />
 </div>
+
+<Toast shown={$state === "recording" || $state === "paused"}>
+    <p slot="message">{$state}</p>
+</Toast>
 
 <style>
     div {
