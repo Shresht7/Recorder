@@ -6,6 +6,7 @@
   import VideoPreview from "./components/VideoPreview.svelte";
   import ControlPanel from "./components/ControlPanel/ControlPanel.svelte";
   import Footer from "./components/layout/Footer.svelte";
+  import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
 
   //  Themes
   import theme from "./theme/store";
@@ -29,6 +30,8 @@
     <Footer />
   {/if}
 </main>
+
+<ReloadPrompt />
 
 <style>
   :global(*, *::before, *::after) {
