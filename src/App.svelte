@@ -43,6 +43,16 @@
     padding: 0;
   }
 
+  :global(:root) {
+    --animation-duration: 250ms;
+  }
+
+  @media (prefers-reduced-motion) {
+    :global(:root) {
+      --animation-duration: 1ms;
+    }
+  }
+
   :global(body) {
     height: 100vh;
     font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
