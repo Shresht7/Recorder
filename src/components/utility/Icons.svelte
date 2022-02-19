@@ -11,9 +11,11 @@
 
     //  Props
     export let name: icons;
+    export let size: string | number = "1.5rem";
+    export let color: string = "var(--clr-text)";
 </script>
 
-<div class="icon">
+<div class="icon" style="--size: {size}; --color: {color};">
     {#if name === "desktop"}
         <GoDeviceDesktop />
     {/if}
@@ -37,8 +39,8 @@
 
 <style>
     .icon {
-        color: var(--clr-text, whitesmoke);
-        width: 1.5rem;
-        height: 1.5rem;
+        color: var(--clr-text);
+        width: var(--size);
+        height: var(--size);
     }
 </style>
