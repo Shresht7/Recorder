@@ -88,6 +88,6 @@
     }
 
     .close {
-        color: var(--clr-background, whitesmoke);
+        color: whitesmoke;
     }
 </style>
