@@ -11,6 +11,9 @@
     import timer from "../../library/timer";
     import options from "../../library/options";
 
+    //  Helpers
+    import { getDownloadName } from "../../helpers";
+
     /** MediaRecorder */
     let recorder: MediaRecorder;
     $: recorder = new MediaRecorder($stream, $options);
@@ -47,8 +50,9 @@
                 recorder.state === "recording" && recorder.stop();
                 timer.stop();
                 state.set("inactive");
+                const name = getDownloadName();
                 const blob = new Blob(chunks, { type: $options.mimeType });
-                download.set(URL.createObjectURL(blob), $options.name);
+                download.set(URL.createObjectURL(blob), name);
             })
             .catch((err) => console.error(err));
     }
