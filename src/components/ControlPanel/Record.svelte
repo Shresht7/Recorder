@@ -14,6 +14,9 @@
     //  Helpers
     import { getDownloadName } from "../../helpers";
 
+    //  Type Definitions
+    import type { mimeType } from "../../types";
+
     /** MediaRecorder */
     let recorder: MediaRecorder;
     $: recorder = new MediaRecorder($stream, $options);
@@ -50,7 +53,7 @@
                 recorder.state === "recording" && recorder.stop();
                 timer.stop();
                 state.set("inactive");
-                const name = getDownloadName();
+                const name = getDownloadName($options.mimeType as mimeType);
                 const blob = new Blob(chunks, { type: $options.mimeType });
                 download.set(URL.createObjectURL(blob), name);
             })
