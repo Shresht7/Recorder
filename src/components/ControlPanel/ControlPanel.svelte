@@ -4,7 +4,6 @@
     import Discard from "./Discard.svelte";
     import Record from "./Record.svelte";
     import Status from "./Status.svelte";
-    import MimeSelect from "./MimeSelect.svelte";
 
     //  Store
     import stream from "../../library/stream";
@@ -27,7 +26,6 @@
         </div>
 
         <div class="flex end">
-            <MimeSelect />
             <Record />
         </div>
     </div>
