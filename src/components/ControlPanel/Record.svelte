@@ -45,8 +45,8 @@
     /** Start the recording process */
     async function startRecording() {
         timer.clear();
-        state.set("recording");
         await countdown.start();
+        state.set("recording");
         timer.start();
         record()
             .then((chunks) => {
