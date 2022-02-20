@@ -12,7 +12,7 @@
 </script>
 
 <header>
-    <div />
+    <div><h1>Screen-Recorder</h1></div>
     <div>
         <Info />
         <Button
