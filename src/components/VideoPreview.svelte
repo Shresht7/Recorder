@@ -59,7 +59,6 @@
         align-items: center;
         font-size: 10rem;
         color: whitesmoke;
-        background-color: black;
         opacity: 0.5;
         top: 0;
         right: 0;
