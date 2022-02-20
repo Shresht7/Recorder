@@ -9,13 +9,11 @@
     import { state, countdown } from "../../library/recording";
     import download from "../../library/download";
     import timer from "../../library/timer";
-
-    /** Media Recorder Options */
-    let options: MediaRecorderOptions = { mimeType: "video/webm" };
+    import options from "../../library/options";
 
     /** MediaRecorder */
     let recorder: MediaRecorder;
-    $: recorder = new MediaRecorder($stream, options);
+    $: recorder = new MediaRecorder($stream, $options);
 
     /** Creates a closure and starts the recording process that returns a promise of the data-blob */
     async function record() {
@@ -49,8 +47,8 @@
                 recorder.state === "recording" && recorder.stop();
                 timer.stop();
                 state.set("inactive");
-                const blob = new Blob(chunks, { type: "video/webm" });
-                download.set(URL.createObjectURL(blob), "test.webm");
+                const blob = new Blob(chunks, { type: $options.mimeType });
+                download.set(URL.createObjectURL(blob), $options.name);
             })
             .catch((err) => console.error(err));
     }
