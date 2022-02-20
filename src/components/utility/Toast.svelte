@@ -41,10 +41,10 @@
         left: 50%;
         transform: translateX(-50%);
         padding: 0.5rem 1rem;
-        border: 1px solid var(--clr-text, whitesmoke);
+        border: 1px solid var(--clr-background, whitesmoke);
         border-radius: 4px;
         z-index: 10;
-        box-shadow: 5px 5px 15px 15px rgba(0, 0, 0, 0.25);
+        box-shadow: 3px 3px 7px 7px rgba(0, 0, 0, 0.25);
         background-color: var(--clr-primary, orangered);
         display: flex;
         flex-direction: column;

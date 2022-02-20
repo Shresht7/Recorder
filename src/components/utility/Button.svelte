@@ -59,8 +59,8 @@
 
     .square {
         flex-direction: column;
-        width: 15vw;
-        height: 15vw;
+        min-width: 15vw;
+        min-height: 15vw;
         padding: 1rem 2rem;
         font-size: 1.5rem;
         box-shadow: 3px 3px 7px 7px rgba(0, 0, 0, 0.25);
