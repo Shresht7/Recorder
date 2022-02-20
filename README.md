@@ -3,7 +3,7 @@
 
 A simple screen-recorder powered by the web!
 
-<!-- TODO: Add Screenshot -->
+![screenshot](screenshot.png)
 
 ## Features
 
