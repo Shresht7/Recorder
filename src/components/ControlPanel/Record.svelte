@@ -12,7 +12,7 @@
     import options from "../../library/options";
 
     //  Helpers
-    import { getDownloadName } from "../../helpers";
+    import { getDownloadName, format } from "../../helpers";
 
     //  Type Definitions
     import type { mimeType } from "../../types";
@@ -82,10 +82,10 @@
     }
 
     //  Update site title to show recording state
-    $: if ($state === 'recording' || $state === 'paused') {
-        document.title = `${$timer} | ${$state}`;
+    $: if ($state === "recording" || $state === "paused") {
+        document.title = `${format($timer)} | ${$state}`;
     } else {
-        document.title = 'Screen-Recorder'
+        document.title = "Screen-Recorder";
     }
 </script>
 
