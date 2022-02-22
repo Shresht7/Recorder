@@ -80,6 +80,13 @@
         timer.stop();
         state.set("inactive");
     }
+
+    //  Update site title to show recording state
+    $: if ($state === 'recording' || $state === 'paused') {
+        document.title = `${$timer} | ${$state}`;
+    } else {
+        document.title = 'Screen-Recorder'
+    }
 </script>
 
 <div>
