@@ -91,7 +91,7 @@
     .content-wrapper {
         z-index: 10;
         width: 80vw;
-        height: 60vh;
+        height: 80vh;
         padding: 1rem;
         overflow: hidden;
         color: hsla(60, 100%, 89%, 1);
@@ -99,7 +99,7 @@
 
     .content {
         width: 100%;
-        max-height: 50vh;
+        max-height: 70vh;
         overflow: auto;
     }
 </style>
