@@ -39,7 +39,8 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 0.5ch;
+        gap: 0.75ch;
+        z-index: 10;
     }
 
     .recording {
