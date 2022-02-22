@@ -11,6 +11,7 @@
         const tracks = $stream.getTracks();
         tracks.forEach((track) => track.stop());
         stream.stop();
+        URL.revokeObjectURL($download.href);
         download.clear();
     }
 </script>
