@@ -14,17 +14,23 @@
         },
     });
 
+    /** Refresh service worker */
+    function refresh() {
+        updateServiceWorker(true);
+        close();
+    }
+
     /** Service worker on close handler */
     function close() {
         offlineReady.set(false);
         needRefresh.set(false);
     }
 
-    let visible: boolean = false;
+    let visible: boolean = true;
     $: visible = $offlineReady || $needRefresh;
 </script>
 
-<Toast {visible}>
+<Toast {visible} duration={0}>
     <div class="message" slot="message">
         {#if $offlineReady}
             <span> App ready to work offline </span>
@@ -35,13 +41,17 @@
 
     <div slot="action">
         {#if $needRefresh}
-            <Button primary={false} on:click={() => updateServiceWorker(true)}>
-                Refresh
-            </Button>
+            <Button primary={false} on:click={refresh}>Refresh</Button>
             <Button primary={false} on:click={close}>Close</Button>
         {/if}
     </div>
 </Toast>
 
 <style>
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
 </style>

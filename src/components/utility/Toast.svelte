@@ -14,8 +14,10 @@
     let timeout: NodeJS.Timeout;
     $: if (visible) {
         isVisible.set(true);
-        clearTimeout(timeout);
-        timeout = setTimeout(() => isVisible.set(false), duration);
+        if (duration) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => isVisible.set(false), duration);
+        }
         visible = false;
     }
 </script>
@@ -40,7 +42,7 @@
         bottom: 5rem;
         left: 50%;
         transform: translateX(-50%);
-        padding: 0.5rem 1rem;
+        padding: 1rem;
         border: 1px solid var(--clr-background, whitesmoke);
         border-radius: 4px;
         z-index: 10;
@@ -51,6 +53,7 @@
         justify-content: center;
         align-items: flex-start;
         min-width: 20vw;
+        gap: 0.5rem;
     }
 
     .close {
