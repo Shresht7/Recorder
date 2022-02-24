@@ -2,20 +2,18 @@
     //  Library
     import { fade } from "svelte/transition";
 
-    import createBooleanStore from "../../library/boolean";
-
-    let isOpen = createBooleanStore();
+    let isOpen: boolean = false;
 
     function open() {
-        isOpen.set(true);
+        isOpen = true;
     }
 
     function close() {
-        isOpen.set(false);
+        isOpen = false;
     }
 
     function toggle() {
-        isOpen.toggle();
+        isOpen = !isOpen;
     }
 
     function keydownHandler(e: KeyboardEvent) {
@@ -31,7 +29,7 @@
     <button on:click={open}>Open Modal</button>
 </slot>
 
-{#if $isOpen}
+{#if isOpen}
     <div
         class="modal"
         on:keydown={keydownHandler}
