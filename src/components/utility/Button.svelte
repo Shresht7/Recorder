@@ -10,9 +10,10 @@
     export let square: boolean = false;
     export let icon: iconTypes = undefined;
     export let size: string | number = "1.5rem";
+    export let style: string | undefined = undefined;
 </script>
 
-<button class:primary class:secondary={!primary} class:square on:click>
+<button class:primary class:secondary={!primary} class:square on:click {style}>
     {#if icon}
         <slot name="icon">
             <Icon name={icon} {size} />
