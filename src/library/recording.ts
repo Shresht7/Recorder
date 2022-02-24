@@ -15,7 +15,7 @@ function createCountdown() {
             setTimeout(() => {
                 clearInterval(id)
                 resolve()
-            }, n * 1000)
+            }, (n * 1000) + 150)    //  Give it n seconds + some change to ensure ctd goes to zero first
         })
     }
 
