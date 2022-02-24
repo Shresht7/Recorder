@@ -81,11 +81,13 @@
         state.set("inactive");
     }
 
+    $: if ($state === "recording" || $state === "paused") {
+        toast.create(capitalize($state));
+    }
+
     //  Update site title to show recording state
     $: if ($state === "recording" || $state === "paused") {
-        const message = capitalize($state);
-        document.title = `${format($timer)} | ${message}`;
-        toast.create(message);
+        document.title = `${format($timer)} | ${capitalize($state)}`;
     } else {
         document.title = "Screen-Recorder";
     }
