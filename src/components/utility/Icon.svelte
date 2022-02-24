@@ -4,6 +4,10 @@
     import GoChevronLeft from "svelte-icons/go/GoChevronLeft.svelte";
     import GoTrashcan from "svelte-icons/go/GoTrashcan.svelte";
     import GoInfo from "svelte-icons/go/GoInfo.svelte";
+    import TiMediaRecord from "svelte-icons/ti/TiMediaRecord.svelte";
+    import TiMediaPause from "svelte-icons/ti/TiMediaPause.svelte";
+    import TiMediaStop from "svelte-icons/ti/TiMediaStop.svelte";
+    import IoMdDownload from "svelte-icons/io/IoMdDownload.svelte";
     import IoIosSun from "svelte-icons/io/IoIosSunny.svelte";
     import IoIosMoon from "svelte-icons/io/IoIosMoon.svelte";
 
@@ -16,7 +20,7 @@
     export let color: string = "var(--clr-text)";
 </script>
 
-<div class="icon" style="--size: {size}; --color: {color};">
+<div class="icon" style="--size: {size}; --clr-text: {color};">
     <slot>
         {#if name === "desktop"}
             <GoDeviceDesktop />
@@ -32,6 +36,26 @@
 
         {#if name === "info"}
             <GoInfo />
+        {/if}
+
+        {#if name === "record"}
+            <TiMediaRecord />
+        {/if}
+
+        {#if name === "continue"}
+            <TiMediaRecord />
+        {/if}
+
+        {#if name === "pause"}
+            <TiMediaPause />
+        {/if}
+
+        {#if name === "stop"}
+            <TiMediaStop />
+        {/if}
+
+        {#if name === "download"}
+            <IoMdDownload />
         {/if}
 
         {#if name === "sun"}
