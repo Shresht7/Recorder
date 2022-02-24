@@ -18,9 +18,9 @@
         font-family: inherit;
         font-size: 1rem;
         padding: 0.5em 1em;
-        color: var(--clr-text, whitesmoke);
-        background-color: var(--clr-primary, black);
-        border: 2px solid var(--clr-primary, black);
+        color: whitesmoke;
+        background-color: var(--clr-success, green);
+        border: 2px solid var(--clr-success, green);
         border-radius: 12px;
         transition: all var(--animation-duration);
         cursor: pointer;
@@ -34,7 +34,7 @@
     a:hover,
     a:focus {
         transform: scale(1.05);
-        outline: 2px solid var(--clr-primary, black);
+        outline: 2px solid var(--clr-success, black);
         outline-offset: 2px;
     }
 </style>
