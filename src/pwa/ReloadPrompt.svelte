@@ -1,7 +1,6 @@
 <script lang="ts">
     //  Library
     import { useRegisterSW } from "virtual:pwa-register/svelte";
-    import Button from "../components/utility/Button.svelte";
 
     //  Store
     import toast from "../components/utility/Toast/store";
@@ -43,6 +42,3 @@
 </script>
 
 <div />
-
-<style>
-</style>
