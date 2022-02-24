@@ -13,6 +13,7 @@ function createToastStore() {
 
     /** Create a new toast */
     function create(message: string, duration: number = 3000): Toast {
+        duration = duration || 1_000_000
         const timeout: NodeJS.Timeout = setTimeout(() => remove(timeout), duration)
         const newToast = { message, duration, timeout }
         update(toasts => ([...toasts, newToast]))

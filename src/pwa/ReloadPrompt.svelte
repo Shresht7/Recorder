@@ -1,8 +1,10 @@
 <script lang="ts">
     //  Library
     import { useRegisterSW } from "virtual:pwa-register/svelte";
-    import Toast from "../components/utility/Toast.svelte";
     import Button from "../components/utility/Button.svelte";
+
+    //  Store
+    import toast from "../components/utility/Toast/store";
 
     //  Register Service Worker
     const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
@@ -26,32 +28,12 @@
         needRefresh.set(false);
     }
 
-    let visible: boolean = true;
-    $: visible = $offlineReady || $needRefresh;
+    $: if ($offlineReady) {
+        toast.create("App ready to work offline", 0);
+    } else if ($needRefresh) {
+        toast.create("Update available", 0);
+    }
 </script>
 
-<Toast {visible} duration={0}>
-    <div class="message" slot="message">
-        {#if $offlineReady}
-            <span> App ready to work offline </span>
-        {:else}
-            <span> Update available </span>
-        {/if}
-    </div>
-
-    <div slot="action">
-        {#if $needRefresh}
-            <Button primary={false} on:click={refresh}>Refresh</Button>
-            <Button primary={false} on:click={close}>Close</Button>
-        {/if}
-    </div>
-</Toast>
-
 <style>
-    div {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-    }
 </style>

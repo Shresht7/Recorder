@@ -2,7 +2,6 @@
     //  Components
     import Button from "../utility/Button.svelte";
     import Download from "./Download.svelte";
-    import Toast from "../utility/Toast.svelte";
 
     //  Stores
     import stream from "../../library/stream";
@@ -10,6 +9,7 @@
     import download from "../../library/download";
     import timer from "../../library/timer";
     import options from "../../library/options";
+    import toast from "../utility/Toast/store";
 
     //  Helpers
     import { getDownloadName, format, capitalize } from "../../helpers";
@@ -83,7 +83,9 @@
 
     //  Update site title to show recording state
     $: if ($state === "recording" || $state === "paused") {
-        document.title = `${format($timer)} | ${capitalize($state)}`;
+        const message = capitalize($state);
+        document.title = `${format($timer)} | ${message}`;
+        toast.create(message);
     } else {
         document.title = "Screen-Recorder";
     }
@@ -106,10 +108,6 @@
 
     <Download {...$download} />
 </div>
-
-<Toast visible={$state === "recording" || $state === "paused"}>
-    <p slot="message">{capitalize($state)}</p>
-</Toast>
 
 <style>
     div {
