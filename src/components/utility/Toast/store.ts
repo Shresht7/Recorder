@@ -1,10 +1,16 @@
 //  Library
 import { writable } from 'svelte/store';
 
+type ToastAction = {
+    label: string,
+    onClick: () => void
+}
+
 type Toast = {
     message: string,
     duration: number,
-    timeout: NodeJS.Timeout
+    timeout: NodeJS.Timeout,
+    actions?: ToastAction[]
 }
 
 function createToastStore() {
@@ -12,10 +18,10 @@ function createToastStore() {
     const { subscribe, set, update } = writable<Toast[]>([])
 
     /** Create a new toast */
-    function create(message: string, duration: number = 3000): Toast {
+    function create(message: string, duration: number = 3000, actions?: ToastAction[]): Toast {
         duration = duration || 1_000_000
         const timeout: NodeJS.Timeout = setTimeout(() => remove(timeout), duration)
-        const newToast = { message, duration, timeout }
+        const newToast = { message, duration, actions, timeout }
         update(toasts => ([...toasts, newToast]))
         return newToast
     }

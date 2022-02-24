@@ -28,12 +28,21 @@
         needRefresh.set(false);
     }
 
-    $: if ($offlineReady) {
-        toast.create("App ready to work offline", 0);
-    } else if ($needRefresh) {
-        toast.create("Update available", 0);
+    let existingToast: NodeJS.Timeout;
+    $: if ($offlineReady || $needRefresh) {
+        const message = $offlineReady
+            ? "App ready to work offline"
+            : "Update available";
+        existingToast = toast.create(message, 0, [
+            { label: "Refresh", onClick: refresh },
+            { label: "Close", onClick: close },
+        ]).timeout;
+    } else {
+        toast.remove(existingToast);
     }
 </script>
+
+<div />
 
 <style>
 </style>

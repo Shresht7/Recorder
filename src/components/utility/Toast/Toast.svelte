@@ -9,13 +9,11 @@
 <div class="toast" role="alert" transition:fly={{ y: 200, duration: 250 }}>
     <div class="close" on:click={onClose}>X</div>
 
-    <div>
+    <div class="full-width">
         <slot>
             <p>Svelte Toast</p>
         </slot>
     </div>
-
-    <slot name="action" />
 </div>
 
 <style>
@@ -30,15 +28,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        min-width: 20vw;
+        min-width: 30vw;
         gap: 0.5rem;
+        position: relative;
+    }
+
+    .full-width {
+        width: 100%;
     }
 
     .close {
         position: absolute;
         top: 5px;
-        right: 5px;
+        right: 7px;
         font-size: 0.75rem;
         cursor: pointer;
+        z-index: 1;
     }
 </style>
