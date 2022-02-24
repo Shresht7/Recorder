@@ -4,10 +4,8 @@
 
   //  Components
   import Header from "./components/layout/Header.svelte";
-  import VideoPreview from "./components/VideoPreview.svelte";
-  import ControlPanel from "./components/ControlPanel/ControlPanel.svelte";
   import Footer from "./components/layout/Footer.svelte";
-  import NotSupported from "./components/NotSupported.svelte";
+  import ScreenRecorder from "./components/ScreenRecorder.svelte";
   import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
   import ToastList from "./components/utility/Toast/ToastList.svelte";
 
@@ -18,21 +16,12 @@
   onMount(() => {
     theme.setRootColors($theme);
   });
-
-  /** Screen Capture API are supported by the user's device */
-  const screenCaptureSupported =
-    typeof navigator?.mediaDevices?.getDisplayMedia === "function";
 </script>
 
 <main>
-  {#if !screenCaptureSupported}
-    <NotSupported />
-  {:else}
-    <Header />
-    <ControlPanel />
-    <VideoPreview />
-    <Footer />
-  {/if}
+  <Header />
+  <ScreenRecorder />
+  <Footer />
 </main>
 
 <ToastList />
