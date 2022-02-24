@@ -9,6 +9,7 @@
   import Footer from "./components/layout/Footer.svelte";
   import NotSupported from "./components/NotSupported.svelte";
   import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
+  import ToastList from "./components/utility/Toast/ToastList.svelte";
 
   //  Themes
   import theme from "./theme/store";
@@ -34,6 +35,7 @@
   {/if}
 </main>
 
+<ToastList />
 <ReloadPrompt />
 
 <style>
