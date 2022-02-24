@@ -10,14 +10,16 @@ const themes: Record<themeMode, theme> = {
         background: palette['--cream'],
         text: palette['--raisin-black'],
         highlight: palette['--maximum-blue-purple'],
-        danger: palette['--red-ryb']
+        danger: palette['--red-ryb'],
+        success: palette['--green']
     },
     dark: {
         primary: palette['--terra-cotta'],
         background: palette['--raisin-black'],
         text: palette['--cream'],
         highlight: palette['--maximum-blue-purple'],
-        danger: palette['--red-ryb']
+        danger: palette['--red-ryb'],
+        success: palette['--green']
     }
 }
 

@@ -3,6 +3,7 @@ export type theme = {
     background: string,
     text: string,
     highlight: string,
+    success: string,
     danger: string,
 }
 
