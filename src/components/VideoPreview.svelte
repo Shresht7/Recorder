@@ -21,6 +21,7 @@
 
 {#if $stream}
     <div>
+        <!-- VIDEO PREVIEW -->
         <video
             bind:this={videoElement}
             controls={$download.visible}
@@ -28,10 +29,12 @@
             muted
             width="100%"
         />
-        <div class="countdown-backdrop" class:hide={$countdown < 1} />
-        <div class="countdown" class:hide={$countdown < 1}>
-            {$countdown}
-        </div>
+
+        <!-- COUNTDOWN -->
+        {#if $countdown > 0}
+            <div class="countdown-backdrop" />
+            <div class="countdown">{$countdown}</div>
+        {/if}
     </div>
 {/if}
 
@@ -78,9 +81,5 @@
         height: 15rem;
         border-radius: 50%;
         z-index: 1;
-    }
-
-    .hide {
-        display: none;
     }
 </style>

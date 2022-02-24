@@ -1,10 +1,12 @@
 //  Library
-import { writable } from "svelte/store";
-import themes from './themes'
+import { writable } from 'svelte/store';
+import themes from './themes';
+
+//  Helpers
 import { userPrefersDarkColorScheme } from '../helpers';
 
 //  Type definitions
-import type { theme, themeMode } from '../types'
+import type { theme, themeMode } from '../types';
 
 //  ---- Local Storage Key ------
 const COLOR_THEME = 'color-theme'
@@ -25,27 +27,31 @@ function getPreferredTheme(): themeMode {
     }
 }
 
+//  ===========
+//  THEME STORE
+//  ===========
+
 function createThemeStore() {
 
     /** The current theme mode */
     let _current: themeMode = getPreferredTheme()
 
-    /** Get the given theme */
-    const getTheme = (name: themeMode) =>
+    /** Get the given theme's colors */
+    const getThemeColors = (name: themeMode) =>
         name in themes ? themes[name] : themes[_current];
 
     /** Get the current theme name */
     const getCurrentTheme = (): themeMode => _current
 
-    //  ------------------------------------------------------
-    const { subscribe, update } = writable(getTheme(_current))
-    //  ------------------------------------------------------
+    //  ------------------------------------------------------------
+    const { subscribe, update } = writable(getThemeColors(_current))
+    //  ------------------------------------------------------------
 
     /** Toggle theme */
     function toggle() {
         _current = _current === "light" ? "dark" : "light";
-        update((t) => ({ ...t, ...getTheme(_current) }));
-        setRootColors(getTheme(_current))
+        update((t) => ({ ...t, ...getThemeColors(_current) }));
+        setRootColors(getThemeColors(_current))
         localStorage.setItem(COLOR_THEME, _current)
     }
 

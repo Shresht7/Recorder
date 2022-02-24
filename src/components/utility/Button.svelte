@@ -1,6 +1,6 @@
 <script lang="ts">
     //  Components
-    import Icon from "./Icons.svelte";
+    import Icon from "./Icon.svelte";
 
     //  Type-Definitions
     import type { icons as iconTypes } from "../../types";
@@ -27,11 +27,11 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 0.5em;
+        gap: 0.125rem;
         font: inherit;
         font-size: 1rem;
         color: var(--clr-text, black);
-        padding: 0.5em 1em;
+        padding: 0.5rem 1rem;
         border-radius: 12px;
         transition: all var(--animation-duration);
         cursor: pointer;

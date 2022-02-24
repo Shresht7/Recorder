@@ -91,17 +91,17 @@
 
 <div>
     {#if $state === "" || ($state === "inactive" && !$download.visible)}
-        <Button on:click={startRecording}>Record</Button>
+        <Button on:click={startRecording} icon="record">Record</Button>
     {/if}
 
     {#if $state === "paused"}
-        <Button on:click={continueRecording}>Continue</Button>
-        <Button on:click={stopRecording}>Stop</Button>
+        <Button on:click={continueRecording} icon="continue">Continue</Button>
+        <Button on:click={stopRecording} icon="stop">Stop</Button>
     {/if}
 
     {#if $state === "recording"}
-        <Button on:click={pauseRecording}>Pause</Button>
-        <Button on:click={stopRecording}>Stop</Button>
+        <Button on:click={pauseRecording} icon="pause">Pause</Button>
+        <Button on:click={stopRecording} icon="stop">Stop</Button>
     {/if}
 
     <Download {...$download} />

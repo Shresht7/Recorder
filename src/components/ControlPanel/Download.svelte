@@ -1,4 +1,7 @@
 <script lang="ts">
+    //  Component
+    import Icon from "../utility/Icon.svelte";
+
     //  Props
     export let href;
     export let download;
@@ -6,7 +9,7 @@
 </script>
 
 {#if visible}
-    <a {href} {download}>Download</a>
+    <a {href} {download}><Icon name="download" />Download</a>
 {/if}
 
 <style>
@@ -21,6 +24,11 @@
         border-radius: 12px;
         transition: all var(--animation-duration);
         cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
     }
 
     a:hover,
