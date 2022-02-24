@@ -1,6 +1,6 @@
 <script lang="ts">
     //  Components
-    import Icon from "./Icons.svelte";
+    import Icon from "./Icon.svelte";
 
     //  Type-Definitions
     import type { icons as iconTypes } from "../../types";

@@ -1,5 +1,5 @@
 <script lang="ts">
-    //  Icons
+    //  Icon
     import GoDeviceDesktop from "svelte-icons/go/GoDeviceDesktop.svelte";
     import GoChevronLeft from "svelte-icons/go/GoChevronLeft.svelte";
     import GoTrashcan from "svelte-icons/go/GoTrashcan.svelte";
