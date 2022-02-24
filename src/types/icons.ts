@@ -3,5 +3,6 @@ export type icons =
     | "desktop"
     | "reset"
     | "discard"
+    | "info"
     | "sun"
     | "moon"

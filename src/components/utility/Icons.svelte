@@ -3,6 +3,7 @@
     import GoDeviceDesktop from "svelte-icons/go/GoDeviceDesktop.svelte";
     import GoChevronLeft from "svelte-icons/go/GoChevronLeft.svelte";
     import GoTrashcan from "svelte-icons/go/GoTrashcan.svelte";
+    import GoInfo from "svelte-icons/go/GoInfo.svelte";
     import IoIosSun from "svelte-icons/io/IoIosSunny.svelte";
     import IoIosMoon from "svelte-icons/io/IoIosMoon.svelte";
 
@@ -16,25 +17,31 @@
 </script>
 
 <div class="icon" style="--size: {size}; --color: {color};">
-    {#if name === "desktop"}
-        <GoDeviceDesktop />
-    {/if}
+    <slot>
+        {#if name === "desktop"}
+            <GoDeviceDesktop />
+        {/if}
 
-    {#if name === "reset"}
-        <GoChevronLeft />
-    {/if}
+        {#if name === "reset"}
+            <GoChevronLeft />
+        {/if}
 
-    {#if name === "discard"}
-        <GoTrashcan />
-    {/if}
+        {#if name === "discard"}
+            <GoTrashcan />
+        {/if}
 
-    {#if name === "sun"}
-        <IoIosSun />
-    {/if}
+        {#if name === "info"}
+            <GoInfo />
+        {/if}
 
-    {#if name === "moon"}
-        <IoIosMoon />
-    {/if}
+        {#if name === "sun"}
+            <IoIosSun />
+        {/if}
+
+        {#if name === "moon"}
+            <IoIosMoon />
+        {/if}
+    </slot>
 </div>
 
 <style>

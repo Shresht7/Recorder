@@ -2,11 +2,14 @@
     //  Library
     import Modal from "../utility/Modal.svelte";
     import Button from "../utility/Button.svelte";
+    import Icons from "../utility/Icons.svelte";
 </script>
 
 <Modal>
     <div slot="trigger" let:open>
-        <Button primary={false} on:click={open}>i</Button>
+        <Button primary={false} on:click={open}>
+            <Icons name="info" />
+        </Button>
     </div>
 
     <div slot="header" class="header" let:close>
