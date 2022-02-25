@@ -69,8 +69,7 @@
 <style>
     div {
         flex-grow: 1;
-        max-width: 70vw;
-        max-height: 75vh;
+        max-width: 100vmin;
         display: grid;
         place-content: center;
         position: relative;

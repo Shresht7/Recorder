@@ -67,6 +67,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
 </style>
