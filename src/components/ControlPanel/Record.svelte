@@ -13,6 +13,7 @@
 
     //  Helpers
     import { getDownloadName, format, capitalize } from "../../helpers";
+    import ysFixWebmDuration from "fix-webm-duration";
 
     //  Type Definitions
     import type { mimeType } from "../../types";
@@ -49,12 +50,15 @@
         state.set("recording");
         timer.start();
         record()
-            .then((chunks) => {
+            .then(async (chunks) => {
                 recorder.state === "recording" && recorder.stop();
                 timer.stop();
                 state.set("inactive");
                 const name = getDownloadName($options.mimeType as mimeType);
-                const blob = new Blob(chunks, { type: $options.mimeType });
+                const brokenBlob = new Blob(chunks, {
+                    type: $options.mimeType,
+                });
+                const blob = await ysFixWebmDuration(brokenBlob, $timer); //  Fix missing webm metadata issue
                 download.set(URL.createObjectURL(blob), name);
             })
             .catch((err) => console.error(err));

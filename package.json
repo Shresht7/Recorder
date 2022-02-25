@@ -33,6 +33,7 @@
     "workbox-window": "^6.5.0"
   },
   "dependencies": {
+    "fix-webm-duration": "^1.0.4",
     "svelte-icons": "^2.1.0"
   }
 }
