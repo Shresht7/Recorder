@@ -1,11 +1,13 @@
 <script lang="ts">
     //  Stores
     import stream from "../library/stream";
-    import { countdown } from "../library/recording";
+    import { state, countdown } from "../library/recording";
     import download from "../library/download";
 
     /** Preview Video Element */
     let videoElement: HTMLVideoElement;
+    let canvasElement: HTMLCanvasElement;
+    let downloadElement: HTMLAnchorElement;
 
     //  Update the videoElement srcObject whenever the stream changes
     $: if (videoElement) {
@@ -17,6 +19,25 @@
             videoElement.srcObject = $stream;
         }
     }
+
+    function takePicture() {
+        const context = canvasElement.getContext("2d");
+        context.drawImage(
+            videoElement,
+            0,
+            0,
+            videoElement.videoWidth,
+            videoElement.videoHeight
+        );
+        const data = canvasElement.toDataURL("image/png");
+        downloadElement.setAttribute("href", data);
+        downloadElement.click();
+    }
+
+    function resizeCanvas() {
+        canvasElement.setAttribute("height", videoElement.videoHeight + "px");
+        canvasElement.setAttribute("width", videoElement.videoWidth + "px");
+    }
 </script>
 
 {#if $stream}
@@ -25,10 +46,17 @@
         <video
             bind:this={videoElement}
             controls={$download.visible}
+            on:loadeddata={resizeCanvas}
+            on:click|preventDefault={takePicture}
             autoplay
             muted
             width="100%"
         />
+
+        <canvas bind:this={canvasElement} />
+        <a href="_" download="screenshot.png" bind:this={downloadElement}>
+            Screenshot
+        </a>
 
         <!-- COUNTDOWN -->
         {#if $countdown > 0}
@@ -52,6 +80,14 @@
     video {
         border-radius: 5px;
         box-shadow: 5px 5px 15px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    canvas {
+        display: none;
+    }
+
+    a {
+        display: none;
     }
 
     .countdown {
