@@ -2,7 +2,7 @@
     //  Components
     import NotSupported from "./NotSupported.svelte";
     import ControlPanel from "../ControlPanel/ControlPanel.svelte";
-    import VideoPreview from "../VideoPreview.svelte";
+    import VideoPreview from "../VideoPreview/VideoPreview.svelte";
 
     /** Screen Capture API are supported by the user's device */
     const screenCaptureSupported =
