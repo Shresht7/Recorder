@@ -7,16 +7,48 @@
 
     /** Begin capturing the stream */
     function startCapture() {
-        stream.start();
+        stream.start("SCREEN");
     }
 </script>
 
-<Button
-    icon="desktop"
-    size="5rem"
-    primary={false}
-    square
-    on:click={startCapture}
->
-    Select Screen
-</Button>
+<div>
+    <Button
+        icon="desktop"
+        size="5rem"
+        primary={false}
+        square
+        on:click={startCapture}
+    >
+        Select Screen
+    </Button>
+    <Button
+        icon="desktop"
+        size="5rem"
+        primary={false}
+        square
+        on:click={() => stream.start("AUDIO", { audio: true })}
+    >
+        Record Audio
+    </Button>
+    <Button
+        icon="desktop"
+        size="5rem"
+        primary={false}
+        square
+        on:click={() => stream.start("AUDIO", { audio: true })}
+    >
+        Converter
+    </Button>
+</div>
+
+<style>
+    div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 70vw;
+        gap: 5rem;
+    }
+</style>

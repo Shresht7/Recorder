@@ -2,7 +2,7 @@
 import { writable } from "svelte/store";
 
 //  Type Definitions
-import { streamType } from '../types'
+import type { streamType } from '../types'
 
 function createStreamStore() {
     const { subscribe, set } = writable<MediaStream>()
@@ -11,10 +11,10 @@ function createStreamStore() {
     async function start(type: streamType, constraints: MediaStreamConstraints | DisplayMediaStreamConstraints = { video: true, audio: true }) {
         let stream: MediaStream
         switch (type) {
-            case streamType.SCREEN:
+            case 'SCREEN':
                 stream = await navigator.mediaDevices.getDisplayMedia(constraints)
                 break;
-            case streamType.AUDIO:
+            case 'AUDIO':
                 stream = await navigator.mediaDevices.getUserMedia(constraints)
                 break;
             default:

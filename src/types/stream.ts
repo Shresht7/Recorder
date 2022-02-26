@@ -1,4 +1,1 @@
-export enum streamType {
-    SCREEN,
-    AUDIO
-}
+export type streamType = 'SCREEN' | 'AUDIO'
