@@ -1,8 +1,8 @@
 <script lang="ts">
     //  Components
     import Discard from "./Discard.svelte";
-    import Record from "./Record.svelte";
     import Status from "./Status.svelte";
+    import Record from "./Record.svelte";
 
     //  Store
     import { state } from "../../library/recording";
