@@ -6,12 +6,14 @@
 </script>
 
 <Modal>
+    <!-- MODAL TRIGGER -->
     <div slot="trigger" let:open>
         <Button primary={false} on:click={open}>
             <Icon name="info" />
         </Button>
     </div>
 
+    <!-- MODAL HEADER -->
     <div slot="header" class="header" let:close>
         <h1>Screen-Recorder</h1>
         <Button primary={false} on:click={close}>
@@ -19,6 +21,7 @@
         </Button>
     </div>
 
+    <!-- MODAL CONTENTS -->
     <div>
         <p>A simple screen-recorder powered by the web!</p>
 
@@ -59,6 +62,10 @@
             <li>
                 Click on <span>Reset</span> or <span>Discard</span> to discard your
                 recording at any stage.
+            </li>
+            <li>
+                Click on the <span>Video-Preview</span> to capture a
+                <span>Screenshot</span>
             </li>
         </ol>
     </div>

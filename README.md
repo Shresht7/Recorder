@@ -20,6 +20,7 @@ A simple screen-recorder powered by the web!
 4. Click on `Download` to save the recording to your device.
 
 Click on `Reset` or `Discard` to discard your recording at any stage.
+Click on the `Video-Preview` to capture a Screenshot.
 
 ## Development
 
