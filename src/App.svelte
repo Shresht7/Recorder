@@ -5,11 +5,15 @@
   //  Components
   import Header from "./components/layout/Header.svelte";
   import Footer from "./components/layout/Footer.svelte";
+  import SelectScreen from "./components/SelectScreen.svelte";
   import ScreenRecorder from "./components/ScreenRecorder.svelte";
   import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
   import ToastList from "./components/utility/Toast/ToastList.svelte";
 
-  //  Themes
+  //  Store
+  import stream from "./library/stream";
+
+  //  Theme
   import theme from "./theme/store";
 
   //  Initialize theme
@@ -20,7 +24,11 @@
 
 <main>
   <Header />
-  <ScreenRecorder />
+  {#if !$stream}
+    <SelectScreen />
+  {:else}
+    <ScreenRecorder />
+  {/if}
   <Footer />
 </main>
 

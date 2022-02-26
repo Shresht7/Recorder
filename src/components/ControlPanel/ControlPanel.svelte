@@ -1,35 +1,29 @@
 <script lang="ts">
     //  Components
-    import SelectScreen from "./SelectScreen.svelte";
     import Discard from "./Discard.svelte";
     import Record from "./Record.svelte";
     import Status from "./Status.svelte";
 
     //  Store
-    import stream from "../../library/stream";
     import { state } from "../../library/recording";
     import timer from "../../library/timer";
 </script>
 
-{#if !$stream}
-    <SelectScreen />
-{:else}
-    <div>
-        <div class="flex start">
-            <Discard />
-        </div>
-
-        <div class="flex center">
-            {#if $state !== "" && $state !== "inactive"}
-                <Status state={$state} timer={$timer} />
-            {/if}
-        </div>
-
-        <div class="flex end">
-            <Record />
-        </div>
+<div>
+    <div class="flex start">
+        <Discard />
     </div>
-{/if}
+
+    <div class="flex center">
+        {#if $state !== "" && $state !== "inactive"}
+            <Status state={$state} timer={$timer} />
+        {/if}
+    </div>
+
+    <div class="flex end">
+        <Record />
+    </div>
+</div>
 
 <style>
     div {
