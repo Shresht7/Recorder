@@ -2,7 +2,7 @@
 </script>
 
 <footer>
-    <div>⚠ Work-in-Progress ⚠</div>
+    <div />
     <div>
         <a href="https://www.github.com/Shresht7/Screen-Recorder">
             View Source
