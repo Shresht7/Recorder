@@ -4,12 +4,9 @@ function createStreamStore() {
     const { subscribe, set } = writable<MediaStream>()
 
     /** Prompts the user to select a screen to capture and sets the media stream */
-    function start() {
+    function start(constraints: DisplayMediaStreamConstraints = { video: true, audio: true }) {
         navigator.mediaDevices
-            .getDisplayMedia({
-                video: true,
-                audio: true,
-            })
+            .getDisplayMedia(constraints)
             .then((mediaStream) => set(mediaStream))
             .catch((err) => console.error(err));
     }
