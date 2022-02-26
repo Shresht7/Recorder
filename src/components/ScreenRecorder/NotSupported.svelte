@@ -4,10 +4,8 @@
 <div>
     <h1>Not Supported</h1>
 
-    <p>
-        The Screen-Capture API is not supported by your device. Please visit
-        this site on a desktop.
-    </p>
+    <p>The Screen-Capture API is not supported by your device.</p>
+    <p>Please visit this site on a desktop.</p>
 </div>
 
 <style>
