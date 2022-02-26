@@ -1,1 +1,1 @@
-export type streamType = 'SCREEN' | 'AUDIO'
+export type streamType = 'SCREEN' | 'AUDIO' | 'WEBCAM'

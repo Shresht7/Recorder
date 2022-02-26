@@ -4,11 +4,6 @@
 
     //  Stores
     import stream from "../library/stream";
-
-    /** Begin capturing the stream */
-    function startCapture() {
-        stream.start("SCREEN");
-    }
 </script>
 
 <div>
@@ -17,9 +12,18 @@
         size="5rem"
         primary={false}
         square
-        on:click={startCapture}
+        on:click={() => stream.start("SCREEN", { video: true, audio: true })}
     >
         Select Screen
+    </Button>
+    <Button
+        icon="desktop"
+        size="5rem"
+        primary={false}
+        square
+        on:click={() => stream.start("WEBCAM", { video: true, audio: true })}
+    >
+        Record Webcam
     </Button>
     <Button
         icon="desktop"
@@ -29,15 +33,6 @@
         on:click={() => stream.start("AUDIO", { audio: true })}
     >
         Record Audio
-    </Button>
-    <Button
-        icon="desktop"
-        size="5rem"
-        primary={false}
-        square
-        on:click={() => stream.start("AUDIO", { audio: true })}
-    >
-        Converter
     </Button>
 </div>
 

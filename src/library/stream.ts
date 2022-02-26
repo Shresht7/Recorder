@@ -14,6 +14,9 @@ function createStreamStore() {
             case 'SCREEN':
                 stream = await navigator.mediaDevices.getDisplayMedia(constraints)
                 break;
+            case 'WEBCAM':
+                stream = await navigator.mediaDevices.getUserMedia(constraints)
+                break;
             case 'AUDIO':
                 stream = await navigator.mediaDevices.getUserMedia(constraints)
                 break;
