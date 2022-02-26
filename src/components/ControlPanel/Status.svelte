@@ -5,21 +5,21 @@
     //  Components
     import Icon from "../utility/Icon.svelte";
 
-    //  Props
-    export let state: RecordingState;
-    export let timer: number = 0;
+    //  Stores
+    import { state } from "../../library/recording";
+    import timer from "../../library/timer";
 </script>
 
 <div>
-    {#if state === "recording"}
+    {#if $state === "recording"}
         <Icon name="record" color="red" />
     {/if}
 
-    {#if state === "paused"}
+    {#if $state === "paused"}
         <Icon name="pause" />
     {/if}
 
-    <p>{format(timer)}</p>
+    <p>{format($timer)}</p>
 </div>
 
 <style>

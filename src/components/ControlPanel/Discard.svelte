@@ -8,8 +8,7 @@
 
     /** Stop Display Capture */
     function stopCapture() {
-        const tracks = $stream.getTracks();
-        tracks.forEach((track) => track.stop());
+        $stream.getTracks().forEach((track) => track.stop());
         stream.stop();
         URL.revokeObjectURL($download.href);
         download.clear();

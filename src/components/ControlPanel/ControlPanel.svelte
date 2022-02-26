@@ -6,20 +6,22 @@
 
     //  Store
     import { state } from "../../library/recording";
-    import timer from "../../library/timer";
 </script>
 
 <div>
+    <!-- DISCARD AND RESET -->
     <div class="flex start">
         <Discard />
     </div>
 
+    <!-- RECORDING STATUS -->
     <div class="flex center">
         {#if $state !== "" && $state !== "inactive"}
-            <Status state={$state} timer={$timer} />
+            <Status />
         {/if}
     </div>
 
+    <!-- RECORDING CONTROLS -->
     <div class="flex end">
         <Record />
     </div>

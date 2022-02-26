@@ -15,7 +15,7 @@
     import ysFixWebmDuration from "fix-webm-duration";
 
     //  Type Definitions
-    import type { mimeType } from "../types";
+    import type { mimeType, recorderCtx } from "../types";
 
     /** MediaRecorder */
     let recorder: MediaRecorder;
@@ -84,7 +84,8 @@
         state.set("inactive");
     }
 
-    setContext("recorder", {
+    //  Set Recorder Context API
+    setContext<recorderCtx>("recorder", {
         startRecording,
         pauseRecording,
         continueRecording,

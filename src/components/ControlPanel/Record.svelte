@@ -10,25 +10,33 @@
     //  Context
     import { getContext } from "svelte";
 
+    //  Types
+    import type { recorderCtx } from "../../types";
+
+    /** Get Recorder Functions from Context */
     const { startRecording, continueRecording, pauseRecording, stopRecording } =
-        getContext("recorder");
+        getContext<recorderCtx>("recorder");
 </script>
 
 <div>
+    <!-- RECORD -->
     {#if $state === "" || ($state === "inactive" && !$download.visible)}
         <Button on:click={startRecording} icon="record">Record</Button>
     {/if}
 
+    <!-- CONTINUE AND STOP -->
     {#if $state === "paused"}
         <Button on:click={continueRecording} icon="continue">Continue</Button>
         <Button on:click={stopRecording} icon="stop">Stop</Button>
     {/if}
 
+    <!-- PAUSE AND STOP -->
     {#if $state === "recording"}
         <Button on:click={pauseRecording} icon="pause">Pause</Button>
         <Button on:click={stopRecording} icon="stop">Stop</Button>
     {/if}
 
+    <!-- DOWNLOAD -->
     <Download {...$download} />
 </div>
 
