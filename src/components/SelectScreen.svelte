@@ -1,6 +1,6 @@
 <script lang="ts">
     //  Components
-    import Button from "../utility/Button.svelte";
+    import Button from "./utility/Button.svelte";
 
     //  Stores
     import stream from "../library/stream";
