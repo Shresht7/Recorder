@@ -11,3 +11,5 @@ export type icons =
     | "download"
     | "sun"
     | "moon"
+    | "mic"
+    | "camera"

@@ -14,10 +14,10 @@
         square
         on:click={() => stream.start("SCREEN", { video: true, audio: true })}
     >
-        Select Screen
+        Record Screen
     </Button>
     <Button
-        icon="desktop"
+        icon="camera"
         size="5rem"
         primary={false}
         square
@@ -26,7 +26,7 @@
         Record Webcam
     </Button>
     <Button
-        icon="desktop"
+        icon="mic"
         size="5rem"
         primary={false}
         square

@@ -10,6 +10,8 @@
     import IoMdDownload from "svelte-icons/io/IoMdDownload.svelte";
     import IoIosSun from "svelte-icons/io/IoIosSunny.svelte";
     import IoIosMoon from "svelte-icons/io/IoIosMoon.svelte";
+    import FaMicrophone from 'svelte-icons/fa/FaMicrophone.svelte';
+    import FaCamera from 'svelte-icons/fa/FaCamera.svelte'
 
     //  Type-Definitions
     import type { icons } from "../../types";
@@ -64,6 +66,14 @@
 
         {#if name === "moon"}
             <IoIosMoon />
+        {/if}
+
+        {#if name === "camera"}
+            <FaCamera />
+        {/if}
+        
+        {#if name === "mic"}
+            <FaMicrophone />
         {/if}
     </slot>
 </div>
