@@ -1,5 +1,6 @@
 <script lang="ts">
     //  Components
+    import Recorder from "../Recorder.svelte";
     import NotSupported from "./NotSupported.svelte";
     import ControlPanel from "../ControlPanel/ControlPanel.svelte";
     import VideoPreview from "../VideoPreview/VideoPreview.svelte";
@@ -10,8 +11,10 @@
 </script>
 
 {#if screenCaptureSupported}
-    <ControlPanel />
-    <VideoPreview />
+    <Recorder>
+        <ControlPanel />
+        <VideoPreview />
+    </Recorder>
 {:else}
     <NotSupported />
 {/if}
