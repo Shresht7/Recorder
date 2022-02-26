@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { getDownloadName } from "../../helpers";
+
     //  Props
     export let height: number = 0;
     export let width: number = 0;
@@ -13,6 +15,10 @@
         context.drawImage(src, 0, 0, width, height);
         const data = canvas.toDataURL("image/png");
         download.setAttribute("href", data);
+        download.setAttribute(
+            "download",
+            getDownloadName("image/png", "Screenshot")
+        );
         download.click();
     }
 

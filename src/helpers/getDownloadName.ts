@@ -5,8 +5,8 @@ import { getExtension } from "./getExtension";
 import type { mimeType } from "src/types";
 
 /** Generates a random download name */
-export const getDownloadName = (type: mimeType) => {
+export const getDownloadName = (type: mimeType, prefix: string = 'Recording') => {
     const date = new Date().toISOString().replace(/[\:\.]/g, '-')
     const extension = getExtension(type)
-    return `Recording_${date}.${extension}`
+    return `${prefix}_${date}.${extension}`
 }
