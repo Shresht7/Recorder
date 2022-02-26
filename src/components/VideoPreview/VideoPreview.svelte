@@ -1,6 +1,7 @@
 <script lang="ts">
     //  Components
     import Countdown from "./Countdown.svelte";
+    import Canvas from "./Canvas.svelte";
 
     //  Stores
     import stream from "../../library/stream";
@@ -8,8 +9,6 @@
 
     /** Preview Video Element */
     let videoElement: HTMLVideoElement;
-    let canvasElement: HTMLCanvasElement;
-    let downloadElement: HTMLAnchorElement;
 
     //  Update the videoElement srcObject whenever the stream changes
     $: if (videoElement) {
@@ -22,23 +21,28 @@
         }
     }
 
+    /** Screenshot-Capturer Canvas Props */
+    let canvasProps = {
+        width: 0,
+        height: 0,
+        src: undefined,
+    };
+
+    /** Sets the src attribute for Canvas-Props */
     function takePicture() {
-        const context = canvasElement.getContext("2d");
-        context.drawImage(
-            videoElement,
-            0,
-            0,
-            videoElement.videoWidth,
-            videoElement.videoHeight
-        );
-        const data = canvasElement.toDataURL("image/png");
-        downloadElement.setAttribute("href", data);
-        downloadElement.click();
+        canvasProps = {
+            ...canvasProps,
+            src: videoElement,
+        };
     }
 
+    /** Sets the width and height of the Canvas-Props */
     function resizeCanvas() {
-        canvasElement.setAttribute("height", videoElement.videoHeight + "px");
-        canvasElement.setAttribute("width", videoElement.videoWidth + "px");
+        canvasProps = {
+            ...canvasProps,
+            width: videoElement.videoWidth,
+            height: videoElement.videoHeight,
+        };
     }
 </script>
 
@@ -55,11 +59,10 @@
             width="100%"
         />
 
-        <canvas bind:this={canvasElement} />
-        <a href="_" download="screenshot.png" bind:this={downloadElement}>
-            Screenshot
-        </a>
+        <!-- SCREENSHOT CANVAS -->
+        <Canvas {...canvasProps} />
 
+        <!-- COUNTDOWN -->
         <Countdown />
     </div>
 {/if}
@@ -77,13 +80,5 @@
     video {
         border-radius: 5px;
         box-shadow: 5px 5px 15px 15px rgba(0, 0, 0, 0.25);
-    }
-
-    canvas {
-        display: none;
-    }
-
-    a {
-        display: none;
     }
 </style>
