@@ -5,7 +5,7 @@
   //  Components
   import Header from "./components/layout/Header.svelte";
   import Footer from "./components/layout/Footer.svelte";
-  import SelectScreen from "./components/ScreenRecorder/SelectScreen.svelte";
+  import SelectScreen from "./components/SelectScreen.svelte";
   import ScreenRecorder from "./components/ScreenRecorder/ScreenRecorder.svelte";
   import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
   import ToastList from "./components/utility/Toast/ToastList.svelte";

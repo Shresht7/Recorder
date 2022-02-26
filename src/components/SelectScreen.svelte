@@ -3,7 +3,7 @@
     import Button from "./utility/Button.svelte";
 
     //  Stores
-    import stream from "../../library/stream";
+    import stream from "../library/stream";
 
     /** Begin capturing the stream */
     function startCapture() {
