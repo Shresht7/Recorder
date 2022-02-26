@@ -14,7 +14,10 @@
 <header>
     <div><h1>Screen-Recorder</h1></div>
     <div>
+        <!-- INFO BUTTON -->
         <Info />
+
+        <!-- TOGGLE THEME -->
         <Button
             primary={false}
             icon={mode === "light" ? "moon" : "sun"}
