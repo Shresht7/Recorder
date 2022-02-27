@@ -7,10 +7,12 @@ import type { streamType } from '../types'
 function createStreamStore() {
     const { subscribe, set } = writable<MediaStream>()
 
+    let type: streamType = 'SCREEN';
+
     /** Prompts the user to select a screen to capture and sets the media stream */
-    async function start(type: streamType, constraints: MediaStreamConstraints | DisplayMediaStreamConstraints = { video: true, audio: true }) {
+    async function start(streamType: streamType, constraints: MediaStreamConstraints | DisplayMediaStreamConstraints = { video: true, audio: true }) {
         let stream: MediaStream
-        switch (type) {
+        switch (streamType) {
             case 'SCREEN':
                 stream = await navigator.mediaDevices.getDisplayMedia(constraints)
                 break;
@@ -23,6 +25,7 @@ function createStreamStore() {
             default:
                 break
         }
+        type = streamType
         set(stream)
     }
 
@@ -34,7 +37,8 @@ function createStreamStore() {
     return {
         subscribe,
         start,
-        stop
+        stop,
+        type
     }
 }
 
