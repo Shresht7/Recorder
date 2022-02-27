@@ -3,7 +3,7 @@
     import RecorderContext from "./RecorderContext.svelte";
     import ControlPanel from "../ControlPanel/ControlPanel.svelte";
     import VideoPreview from "../VideoPreview/VideoPreview.svelte";
-    import AudioPreview from "../AudioPreview.svelte";
+    import AudioPreview from "../../Audio/AudioPreview.svelte";
     import NotSupported from "./NotSupported.svelte";
 
     /** Screen Capture API are supported by the user's device */
