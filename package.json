@@ -1,16 +1,16 @@
 {
-  "name": "screen-recorder",
-  "description": "A simple screen-recorder powered by the web!",
+  "name": "recorder",
+  "description": "A simple recorder powered by web-technologies!",
   "author": "Shresht7",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/Shresht7/Screen-Recorder.git"
+    "url": "https://www.github.com/Shresht7/Recorder.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shresht7/Screen-Recorder/issues"
+    "url": "https://github.com/Shresht7/Recorder/issues"
   },
-  "homepage": "https://github.com/Shresht7/Screen-Recorder#README",
+  "homepage": "https://github.com/Shresht7/Recorder#README",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

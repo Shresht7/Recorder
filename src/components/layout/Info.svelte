@@ -15,7 +15,7 @@
 
     <!-- MODAL HEADER -->
     <div slot="header" class="header" let:close>
-        <h1>Screen-Recorder</h1>
+        <h1>Recorder</h1>
         <Button primary={false} on:click={close}>
             <span class="close">X</span>
         </Button>
@@ -23,7 +23,7 @@
 
     <!-- MODAL CONTENTS -->
     <div>
-        <p>A simple screen-recorder powered by the web!</p>
+        <p>A simple recorder powered by web-technologies!</p>
 
         <h2>Features</h2>
 
@@ -35,20 +35,20 @@
                 100% Client-sided. No ads, no trackers, no server interaction at
                 all.
             </li>
+            <li>Record your screen, camera or microphone.</li>
         </ul>
 
         <h2>Usage</h2>
 
         <ol>
             <li>
-                1. Click on the <span>Select Screen</span> button. Your browser will
-                prompt you to select the screen that you want to share with this
-                app.
+                1. Select one of the recording options. Your browser will prompt
+                you to select what you want to share with this app.
             </li>
             <li>
-                2. Once a screen has been selected, a preview of the video
-                stream will be shown. Click <span>Record</span> to start recording
-                the screen.
+                2. Once selected, a preview of the stream will be shown. Click <span
+                    >Record</span
+                > to start recording the screen.
             </li>
             <li>
                 3. You can <span>Pause</span> and <span>Continue</span> the
@@ -64,7 +64,7 @@
                 recording at any stage.
             </li>
             <li>
-                Click on the <span>Video-Preview</span> to capture a
+                Click on the <span>Preview</span> to capture a
                 <span>Screenshot</span>
             </li>
         </ol>

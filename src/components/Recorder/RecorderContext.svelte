@@ -100,7 +100,7 @@
     $: if ($state === "recording" || $state === "paused") {
         document.title = `${format($timer)} | ${capitalize($state)}`;
     } else {
-        document.title = "Screen-Recorder";
+        document.title = "Recorder";
     }
 </script>
 

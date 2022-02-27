@@ -4,7 +4,7 @@
 <footer>
     <div />
     <div>
-        <a href="https://www.github.com/Shresht7/Screen-Recorder">
+        <a href="https://www.github.com/Shresht7/Recorder">
             View Source
         </a>
     </div>

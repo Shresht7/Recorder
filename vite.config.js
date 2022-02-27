@@ -16,9 +16,9 @@ export default defineConfig({
         'apple-touch-icon.png'
       ],
       manifest: {
-        name: "Screen-Recorder",
-        short_name: "Screen-Recorder",
-        description: "A simple screen-recorder powered by the web!",
+        name: "Recorder",
+        short_name: "Recorder",
+        description: "A simple recorder powered by the web-technologies!",
         theme_color: "#E87461",
         background_color: "#E87461",
         icons: [
