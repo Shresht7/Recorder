@@ -1,37 +1,30 @@
 <script lang="ts">
     //  Components
-    import Button from "./utility/Button.svelte";
+    import Button from "./utility/BigButton.svelte";
 
     //  Stores
     import stream from "../library/stream";
 </script>
 
 <div>
+    <!-- RECORD STREAM -->
     <Button
         icon="desktop"
-        size="5rem"
-        primary={false}
-        square
         on:click={() => stream.start("SCREEN", { video: true, audio: true })}
     >
         Record Screen
     </Button>
+
+    <!-- RECORD WEBCAM -->
     <Button
         icon="camera"
-        size="5rem"
-        primary={false}
-        square
         on:click={() => stream.start("WEBCAM", { video: true, audio: true })}
     >
         Record Webcam
     </Button>
-    <Button
-        icon="mic"
-        size="5rem"
-        primary={false}
-        square
-        on:click={() => stream.start("AUDIO", { audio: true })}
-    >
+
+    <!-- RECORD AUDIO -->
+    <Button icon="mic" on:click={() => stream.start("AUDIO", { audio: true })}>
         Record Audio
     </Button>
 </div>
