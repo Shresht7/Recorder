@@ -3,19 +3,19 @@
     import { setContext } from "svelte";
 
     //  Stores
-    import stream from "../library/stream";
-    import { state, countdown } from "../library/recording";
-    import timer from "../library/timer";
-    import options from "../library/options";
-    import toast from "./utility/Toast/store";
-    import download from "../library/download";
+    import stream from "../../library/stream";
+    import { state, countdown } from "../../library/recording";
+    import timer from "../../library/timer";
+    import options from "../../library/options";
+    import toast from "../utility/Toast/store";
+    import download from "../../library/download";
 
     //  Helpers
-    import { getDownloadName, format, capitalize } from "../helpers";
+    import { getDownloadName, format, capitalize } from "../../helpers";
     import ysFixWebmDuration from "fix-webm-duration";
 
     //  Type Definitions
-    import type { mimeType, recorderCtx } from "../types";
+    import type { mimeType, recorderCtx } from "../../types";
 
     /** MediaRecorder */
     let recorder: MediaRecorder;
