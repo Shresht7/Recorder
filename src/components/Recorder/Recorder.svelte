@@ -1,6 +1,6 @@
 <script lang="ts">
     //  Components
-    import Recorder from "../Recorder.svelte";
+    import RecorderContext from "./RecorderContext.svelte";
     import ControlPanel from "../ControlPanel/ControlPanel.svelte";
     import VideoPreview from "../VideoPreview/VideoPreview.svelte";
     import AudioPreview from "../AudioPreview.svelte";
@@ -16,14 +16,14 @@
 </script>
 
 {#if screenCaptureSupported}
-    <Recorder>
+    <RecorderContext>
         <ControlPanel />
         {#if isVideoTrack}
             <VideoPreview />
         {:else}
             <AudioPreview />
         {/if}
-    </Recorder>
+    </RecorderContext>
 {:else}
     <NotSupported />
 {/if}

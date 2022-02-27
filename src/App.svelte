@@ -6,7 +6,7 @@
   import Header from "./components/layout/Header.svelte";
   import Footer from "./components/layout/Footer.svelte";
   import SelectScreen from "./components/SelectScreen.svelte";
-  import ScreenRecorder from "./components/ScreenRecorder/ScreenRecorder.svelte";
+  import Recorder from "./components/Recorder/Recorder.svelte";
   import ReloadPrompt from "./pwa/ReloadPrompt.svelte";
   import ToastList from "./components/utility/Toast/ToastList.svelte";
 
@@ -24,11 +24,13 @@
 
 <main>
   <Header />
+
   {#if !$stream}
     <SelectScreen />
   {:else}
-    <ScreenRecorder />
+    <Recorder />
   {/if}
+
   <Footer />
 </main>
 

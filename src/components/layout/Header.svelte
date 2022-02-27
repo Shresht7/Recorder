@@ -12,7 +12,7 @@
 </script>
 
 <header>
-    <div><h1>Screen-Recorder</h1></div>
+    <div><h1>Recorder</h1></div>
     <div>
         <!-- INFO BUTTON -->
         <Info />
@@ -41,5 +41,6 @@
         justify-content: space-between;
         align-items: center;
         gap: 0.5rem;
+        cursor: default;
     }
 </style>
