@@ -2,7 +2,7 @@
     //  Components
     import RecorderContext from "./RecorderContext.svelte";
     import ControlPanel from "../ControlPanel/ControlPanel.svelte";
-    import VideoPreview from "../VideoPreview/VideoPreview.svelte";
+    import VideoPreview from "../Video/VideoPreview.svelte";
     import AudioPreview from "../../Audio/AudioPreview.svelte";
     import NotSupported from "./NotSupported.svelte";
 
