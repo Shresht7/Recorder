@@ -30,7 +30,7 @@
     "typescript": "^4.7.4",
     "vite": "^2.9.13",
     "vite-plugin-pwa": "^0.12.2",
-    "workbox-window": "^6.5.0"
+    "workbox-window": "^6.5.4"
   },
   "dependencies": {
     "fix-webm-duration": "^1.0.5",
